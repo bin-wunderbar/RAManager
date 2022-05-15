@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sun May 08 16:24:16 CEST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0180-a40e-81d1-00000390b338 
+on database directory /home/dani/.ramanager/derby/RAManager with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@22d8cfe0 
+Loaded from file:/datos/eclipse-workspace/RAManager.v3/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=16.0.2+7-67
+user.dir=/datos/eclipse-workspace/RAManager.v3
+os.name=Linux
+os.arch=amd64
+os.version=5.10.0-9-amd64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

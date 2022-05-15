@@ -1,0 +1,33 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-05-08 15:00:25 #1 store] 
+Database '/home/dani/.ramanager/objectdb/alerts.odb' is opened by 17820@Debian11Sec
+
+[2022-05-08 15:00:25 #2 store] 
+Configuration path: ?
+
+[2022-05-08 15:00:25 #3 type] 
+Type sgbdoo.Alert is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-05-08 15:23:06 #1 store] 
+Database '/home/dani/.ramanager/objectdb/alerts.odb' is opened by 18279@Debian11Sec
+
+[2022-05-08 15:23:06 #2 store] 
+Configuration path: ?
+
+[2022-05-08 15:23:06 #3 type] 
+Type sgbdoo.Alert is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2022-05-08 15:24:06 #1 store] 
+Database '/home/dani/.ramanager/objectdb/alerts.odb' is opened by 18465@Debian11Sec
+
+[2022-05-08 15:24:06 #2 store] 
+Configuration path: ?
+
+[2022-05-08 15:24:06 #3 type] 
+Type sgbdoo.Alert is not enhanced.
+

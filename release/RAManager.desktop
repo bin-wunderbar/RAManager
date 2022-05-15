@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon=/datos/eclipse-workspace/RAManager.v3/src/resources/rekord_autoak_logo.png
+Icon[es_ES]=/datos/eclipse-workspace/RAManager/src/resources/app.png
+Name[es_ES]=RAManager
+Exec=java -jar /datos/eclipse-workspace/RAManager.v3/release/RAManager.jar
+Name=RAManager
