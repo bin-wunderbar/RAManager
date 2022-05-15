@@ -22,9 +22,9 @@
 [ok] Agregar permiso de administración
 [ok] Implementar todas las entidades
 [ok] Implementar todos los formularios de gestión de entidad
-	[ok] Roles
-	[ok] Proveedores
-	[ok] Materiales
+[ok] Roles
+[ok] Proveedores
+[ok] Materiales
 	
 [ok] El formulario de vehículos debe mostrarse filtrado y completado en solo lectura el id del cliente
 
@@ -33,8 +33,8 @@
 [ok] Implementar guardado y recuperación en disco de la configuración de RAConfig
 
 [ok] Lista de entidades genéricas opera por clave primaria
-	[ok] encuentra objetos
-	[ok] elimina objetos
+[ok] encuentra objetos
+[ok] elimina objetos
 
 
 [ok] numberToString en Util
