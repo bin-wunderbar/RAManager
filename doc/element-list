@@ -1,0 +1,9 @@
+bll
+dal
+gui
+gui.dialogs
+gui.dialogs.operationdialog
+gui.dialogs.printdialog
+gui.forms
+gui.forms.mainform
+test

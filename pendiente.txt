@@ -1,0 +1,97 @@
+[ok] 	Agregar total sin iva a la factura
+[ok] 	Return buildBOperation (operation)
+[ok]	Imprimir factura
+[ok] 	Implementar panel de control del operario
+	[ok]	Corregir Operaciones fantasma fuera de orden
+[ok]	Implementar el registro de factura emitida
+[ok]	Cancelación de encargo (operativa, bloquea el encargo)
+[ok] Revisar verificaciones del diálogo de configuración
+[ok] Actualizar el panel de entidades al aceptar la configuración
+[ok] Bloquear controles de configuración según rol
+[ok] Avisar si hay datos de configuración modificados antes de salir
+[] Asegurar márgenes de impresión en configuraciones sin márgen
+[ok] Entradas de DNI y matrícula deben de ser únicas
+[] Anular las selecciones del cliente eliminado del formulario principal
+[] Limpiar formulario al eliminar al cliente seleccionado
+[ok] Formulario de cambio de contraseña
+[ok] Usuarios con permiso de administración pueden cambiar el operario responsable de cada acción desde el diálogo de operaciones
+[ok] Un empleado no puede eliminarse a sí mismo (seguridad)
+[ok] No guardar roles con nombre vacío
+[ok] No guardar roles con mismo nombre
+[ok] RAManager, cambiar todos los métodos getbyprimarykey por la versión que usa el método del DBEntityList	
+[ok] Agregar permiso de administración
+[ok] Implementar todas las entidades
+[ok] Implementar todos los formularios de gestión de entidad
+	[ok] Roles
+	[ok] Proveedores
+	[ok] Materiales
+	
+[ok] El formulario de vehículos debe mostrarse filtrado y completado en solo lectura el id del cliente
+
+	
+[ok] Panel de entidades, pasar los valores de empresa a la configuración de la aplicación RAConfig
+[ok] Implementar guardado y recuperación en disco de la configuración de RAConfig
+
+[ok] Lista de entidades genéricas opera por clave primaria
+	[ok] encuentra objetos
+	[ok] elimina objetos
+
+
+[ok] numberToString en Util
+[ok] redundancia en formularios derivados de TableDialog
+[ok] redundancia en clases de lista
+[ok] los cambios en los clientes no repercuten en la información de entidad
+
+
+---------------------------------------------------------------------------------------------------
+[ok] Agregar el botón de seleccionar al formulario TableDialog
+
+---------------------------------------------------------------------------------------------------
+
+[ok] Insertar y actualizar en base de datos (preferible con la base de datos en marcha)
+[ok] Las operaciones nuevas se generan con ID < 1 a la espera de hacer el insert y generar claves primarias correctas
+[ok] Funciones not implemented yet
+
+[ok] Homogeneizar el código de las tablas
+[ok] Generalizar carga de items en combobox
+
+---------------------------------------------------------------------------------------------------
+	MAINFRAME
+---------------------------------------------------------------------------------------------------
+
+[ok]	Los paneles complejos heredan
+[ok]	Traer clientes a controles
+[ok]	Traer servicios a controles
+
+---------------------------------------------------------------------------------------------------
+	PRINT DIALOG
+---------------------------------------------------------------------------------------------------
+
+[ok] Cambiar los cálculos aritméticos por BigDecimal
+
+
+---------------------------------------------------------------------------------------------------
+	IMPLEMENTACIÓN DE CONTROLES COMPUESTOS DE FORMULARIO
+---------------------------------------------------------------------------------------------------
+
+[ok]	Panel de Empresa y cliente
+[ok]	Panel (fichas) de Encargo 
+[ok]	Tabla de acciones de encargo
+[ok]	Barra de herramientas de encargo
+[ok]	Barra de herramientas de Acciones de encargo	
+
+---------------------------------------------------------------------------------------------------
+	ALIMENTACIÓN DE LISTA DESPLEGABLE DE OPERACIONES
+---------------------------------------------------------------------------------------------------
+
+[ok] 	Traer operarios a controles
+[ok]  	Traer actuaciones a controles
+[ok]  	Traer materiales a controles
+
+---------------------------------------------------------------------------------------------------
+AUTORIZACIONES
+---------------------------------------------------------------------------------------------------
+
+[ok]  	Diálogos accesibles según permiso 
+[ok]  	Campos de solo lectura en ausencia del permiso de modificación
+

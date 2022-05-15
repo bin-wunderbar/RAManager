@@ -1,0 +1,185 @@
+---------------------------------------------------------------------------------------------------
+							CONVENIO DE BUENAS PRÁCTICAS - GRUPO 4
+---------------------------------------------------------------------------------------------------
+
+
+IDENTIFICADORES
+---------------------------------------------------------------------------------------------------
+
+	1. Completos
+
+		- Al crear identificadores, no usar abreviaturas salvo justificación o acuerdo con el grupo, ya que producen confusión y es difícil preverlas para el resto
+		
+			Bien: 	configFile, MainFrame, OptionsDialog, selectedOrder
+			Mal: 	cnfFil, dir, SelOr
+		
+		- Excepciones
+		
+			a. El entorno de desarrollo propone algunas abreviaturas, por ejemplo Exception e, MouseEvent evt, etc..
+				No hay problema en aceptar las abreviaturas del entorno de desarrollo ya que suelen tener un recorrido corto (variables locales)
+				y además las podemos conocer fácilmente todos.
+				
+			b. Variables de contador, el alcance de estas variables se limita al bucle en el que están definidas por lo que no es necesario 
+				especificar que es una variable contadora, es una obviedad, es suficiente con las abreviaturas i (index), h, x, y, etc..
+				
+				for (int i = 0; i < nombres.length; i++) System.out.println (nombres[i]);
+
+		
+	2. Homogeneidad
+		
+		- Inicialmente la solución está escrita en inglés, mantener el idioma.
+		
+		- Mantener la homogeneidad no solo en el idioma, si no en la escritura de código, hace más predecible y fácil de entender la solución.
+		
+			Por ejemplo, métodos para lanzar formularios de gestión: 
+	
+				Bien (homogeneo)					Mal (no predecible, confuso)
+				----------------------------------------------------------		
+				void showOptionsDialog ()			options ()
+				void showMaterialDialog ()			inputResources ()
+				void showVehicleDialog ()			vehiclesSelect ()
+		
+			
+	3. Identificar la utilidad
+		- Especificar la función que proporcionan de forma clara, evitando ambigüedades
+	
+			Bien								Mal
+			----------------------------------------------------------		
+			applicationDirectory				dir		(¿Director? ¿Directive? ¿Dirigible?)
+			OptionsDialog						cuarto 	(¿Cuarto qué, oscuro? ¿Para qué es esto?)
+			getClientsByDNI						data 	(¿Datos de qué?, ¿Qué hace esto?)
+			
+			* Mantener identificadores claros y completos permite ahorrar tiempo y reducir confusión, evitando tener que bucear en el 
+			código hasta encontrar el propósito del identificador, si el identificador es claro, solo será neceario analizar el código donde se encuentra.
+				
+				
+	4. Prefijo de control gráfico
+		- Es bastante clarificador cuando se trabaja con interfaces gráficas saber si un objeto tiene representacón gráfica, lo que ayuda a discernir 
+		entre los objetos internos y los de entrada y salida (interfaz gráfica), por lo que es conveniente agregar al identificador un prefijo con el nombre
+		del control.
+		
+		Ejemplos:
+			textFieldName
+			textFieldEmail
+			buttonOk
+			comboBoxEmployees
+		
+		Prefijos de controles usados:
+			label
+			textField
+			textArea
+			button
+			comboBox
+			table
+			panel
+			toolBar
+			checkBox				 
+	
+MÉTODOS (teoría de implementación)
+---------------------------------------------------------------------------------------------------
+
+	1. Reutilización
+		- La solución de una tarea como subprograma (función / procedimiento / subrutina / método) permite reutilizar la tarea en diferentes partes del proyecto
+		eliminando una de las redundancias más básicas de código.
+		
+	2. Generalización
+		- Cuando se resuelve un proceso para un caso específico, permite por poco esfuerzo más, reemplazar los detalles y abstraerlos para hacer el proceso útil en aquellos casos similares.
+		
+		Mal (específico))
+			void dibujarRectangulo ()
+			
+		Bien (generalizado))
+			void dibujarRectangulo (int x, int y, int ancho, int alto)
+		 
+	3. Abstracción
+		- La abstracción es un concepto que evita los detalles concretos para centrarse en lo representativo. Siendo así, la persona "Carlos", es una persona concreta, específica, 
+		pero el concepto "persona", decimos que es una asbtracción porque el término persona no incluye los detalles específicos y representa no solo a Carlos, si no a todos los 
+		que cumplen con las condiciones generales que definen a las personas.
+		
+		Ejemplos de abstracciones:
+			
+			TIPO		ABSTRACTO								TIPO					CONCRETO
+			----------------------------------------			----------------------------------------
+			Clase 		Persona									Instancia u objeto 		Carlos
+			Variable 	numero									Literal con el valor 	5
+			Puntero		*pNumero = &numero						Variable de variables	numero
+			Método		distancia (x1, y1, x2, y2)				Detalle de proceso		sqrt (pow (x1 - x2, 2) - pow (y1 - y2))
+			
+		La abstracción permite automatizar y gestionar de forma más eficaz la información y es usada en programación desde el primer momento.
+		
+		Ejemplo:
+			// Imprimir 100 números de forma concreta
+			System.out.println (0);
+			System.out.println (1);
+			System.out.println (2);
+			...
+			System.out.println (99);
+			
+			// Imprimir 100 números abstrayendo el valor a imprimir
+			for (int i = 0; i < 100; i++) System.out.println (i);
+		
+		- Los métodos, como muchos otros recursos, pueden abstraer mediante su código e identificador los detalles del proceso que resuelven, obteniendo las ventajas de la abstracción
+		y flexibilizando la solución ante cambios de los detalles del proceso.
+		
+	4. Una única solución (IMPORTANTE)
+		
+		- Un método solo debe resolver una tarea, si resuelve un proceso complejo que realiza múltiples funciones, éstas, deben ser resueltas por los métodos correspondientes.
+		
+		 Bien)
+
+			 void mostrarDistancia (int x1, int y1, int x2, int y2)
+			 {
+			 	System.out.println ("Distancia: " + distancia (x1, y1, x2, y2));
+			 }
+			 
+			 double distancia (int x1, int y1, int x2, int y2)
+			 {
+			 	return Math.sqrt (Math.pow (x2 - x1, 2) + Math.pow (y2 - y1, 2));
+			 }
+		 
+		 	* En este caso, el método distancia podría ser utilizado en un campo de texto o en el cálculo gráfico de un objeto de la pantalla, de un disparo en un videojuego, etc..
+		 	
+		 Mal)
+
+			 void mostrarDistancia (int x1, int y1, int x2, int y2)
+			 {
+			 	System.out.println ("Distancia: " + Math.sqrt (Math.pow (x2 - x1, 2) + Math.pow (y2 - y1, 2)));
+			 }
+
+			* Este caso impide reutilizar el cálculo de la distancia en el resto de la solución o ser transportado a otro proyecto de forma limpia.
+				
+		- Los métodos con código extenso dificultan la reutilización y genera dependencia.
+		Si supera las 15 líneas de código operativo:
+			a) Analizar si tiene codigo redundante que podría optimizarse.
+			b) Resuelve múltiples tareas que deberían ser resueltas en los métodos correspondientes.
+			
+	6. Identificación
+		- Si vas a poner la utilidad de un bloque de código en forma de comentario, pregúntate por qué ese código no tiene su propio método con el nombre adecuado. 
+	
+	
+CAPAS UTILIZADAS
+---------------------------------------------------------------------------------------------------
+
+	1. Vista / view, gui (Graphic User Interface), cli (Command Line Interface)
+	2. Lógica de la aplicación / bll (Business Logic Layer)
+	3. Datos de la aplicación / dal (Data Abstraction Layer)
+	
+	Las capas representan módulos de código cuyo acceso va en orden de la más alta a la más baja, siendo la más alta la vista y la más baja la capa de datos.
+		
+		Vista (gui)
+		  |
+		  V
+		Lógica de la aplicación (bll)
+		  |
+		  V
+		Datos de la aplicación (dal)
+		
+	El acceso a objetos y métodos siempre es en orden descendente, es decir, la capa vista puede usar objetos de la capa lógica, pero no al revés
+	Tampoco se debe acceder desde la capa vista directamente a la capa de datos.
+	
+	* Mantener este orden y restricciones permite que en caso de sustituir una capa, el resto de la aplicación pueda mantener funcionalidad con la capa subyacente.
+		Por ejemplo si cambiamos la capa de datos para que en lugar de obtener los datos de archivos los obtenga de una base de datos mysql o SQL Server, las capas 
+		de lógica y negocio no deberían verse afectadas o a lo sumo la de negocio que es la inmediatamente superior. También fuerza a evitar la tentación de dar 
+		funcionalidad operativa fuera de la capa correspondiente generando dependencias entre capas que dificultan la ampliación o el simple mantenimiento.
+
+
