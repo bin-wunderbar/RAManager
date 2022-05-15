@@ -24,6 +24,16 @@ import java.awt.FlowLayout;
 import javax.swing.border.BevelBorder;
 
 // ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+/**
+ * Dialogo para el cambio de contrasenna
+ * 
+ * @author G4
+ *
+ */
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class PasswordChangeDialog extends JDialog 
 {
 	private RAManager rAManager;
@@ -41,6 +51,17 @@ public class PasswordChangeDialog extends JDialog
 	private JFrame owner;
 	
 	// ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Iniciliza el dialogo de cambio de contrasenna
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @param login			- Empleado que ha iniciado sesion
+	 */
+>>>>>>> V3.1-alertas
 	public PasswordChangeDialog (JFrame owner, RAManager rAManager, Language language, BEmployee login)
 	{
 		super (owner, true);
@@ -91,10 +112,14 @@ public class PasswordChangeDialog extends JDialog
 		buttonOk.addActionListener (new ActionListener () {
 			public void actionPerformed (ActionEvent actionEvent)
 			{
+<<<<<<< HEAD
 				if (changePassword ())
 				{
 					dispose ();
 				}
+=======
+				changePassword ();
+>>>>>>> V3.1-alertas
 			}
 		});
 		panelButtons.add (buttonOk);
@@ -105,7 +130,32 @@ public class PasswordChangeDialog extends JDialog
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	protected boolean changePassword () 
+=======
+	protected void changePassword ()
+	{
+		if (verifyChangePassword ())
+		{
+			try {
+				login.setPassword(new String (passwordFieldNew.getPassword()));
+				rAManager.save (login);
+				JOptionPane.showMessageDialog(this, language.get("passwordChangeOk"));
+				dispose ();
+			} catch (RAManagerException exception) {
+				ValueChecks.showExceptionMessage (this, language, exception);
+			}
+		}
+	}
+	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Devuelve cierto si la contrasenna puede ser cambiada
+	 * 
+	 * @return Cierto si la contrasenna puede ser cambiada
+	 */
+	protected boolean verifyChangePassword () 
+>>>>>>> V3.1-alertas
 	{
 		String passwordOld 			= new String (passwordFieldOld.getPassword());
 		String passwordNew			= new String (passwordFieldNew.getPassword());
@@ -113,6 +163,7 @@ public class PasswordChangeDialog extends JDialog
 
 		ValueChecks valueChecks = new ValueChecks (owner, language);
 		
+<<<<<<< HEAD
 		if (login.getPassword().equals (passwordOld))
 		{
 			if (valueChecks.isValidPassword(passwordFieldNew))
@@ -126,6 +177,15 @@ public class PasswordChangeDialog extends JDialog
 					} catch (RAManagerException exception) {
 						ValueChecks.showExceptionMessage (this, exception);
 					}
+=======
+		if (login.verifyPassword(passwordOld))
+		{
+			if (valueChecks.isValidPassword(passwordFieldNew, language.get("passwordLabelNew")))
+			{
+				if (passwordNew.equals(passwordConfirm))
+				{
+					return true;
+>>>>>>> V3.1-alertas
 				}
 				else
 				{

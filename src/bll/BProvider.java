@@ -19,12 +19,25 @@ public class BProvider extends Provider implements IRAObject
 	public static final int COLUMN_PHONE		= 3;
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa un proveedor vacio
+	 */
+>>>>>>> V3.1-alertas
 	public BProvider ()
 	{
 		
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa un proveedor de la capa de negocio a partir de un proveedor de la capa de datos
+	 * @param provider
+	 */
+>>>>>>> V3.1-alertas
 	public BProvider(Provider provider)
 	{
 		super(provider.getId (), provider.getName(), provider.getDirection(), provider.getEmail(), provider.getPhone());

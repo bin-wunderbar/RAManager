@@ -1,0 +1,22 @@
+---------------------------------------------------------------------------------------------------
+ MYSQL
+---------------------------------------------------------------------------------------------------
+
+Requiere el servicio de bases de datos mysql o mariadb configurado
+
+	- Zona horaria
+
+	/etc/mysql/mariadb.conf.d/50-server.cnf
+	[mysqld]
+		default-time-zone	=	'+1:00'
+		
+	- Acceso remoto de clientes (comentada o eliminada la linea bind-address
+	[mysqld]
+		# bind-address		=	127.0.0.1
+
+Requiere la instalación del driver de acceso a mysql para java guardado en la carpeta lib
+	lib/mariadb-java-client.jar
+	
+	Instalar la librería:
+		Project --> Properties --> Java Build Path --> Libraries --> Add Jars
+	

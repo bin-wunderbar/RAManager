@@ -21,6 +21,15 @@ import java.awt.Rectangle;
 import java.awt.Color;
 
 // --------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+/**
+ * Dialogo de acerca de la aplicacion
+ * @author G4
+ *
+ */
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class AboutDialog extends JDialog 
 {
 	private JPanel panelButtons;
@@ -30,6 +39,15 @@ public class AboutDialog extends JDialog
 	
 	
 	// ----------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el dialogo
+	 * 
+	 * @param owner - Ventana propietaria
+	 * @param language - Objeto de idioma
+	 */
+>>>>>>> V3.1-alertas
 	public AboutDialog (JFrame owner, Language language)
 	{
 		super (owner, true);
@@ -67,10 +85,20 @@ public class AboutDialog extends JDialog
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	public void loadHtml ()
 	{
 		InputStream inputStream = AboutDialog.class.getResourceAsStream("/resources/html/" + language.getSelectedLanguage () + ".html");
 		textPane.setContentType("text/html");
+=======
+	/**
+	 * Carga la pagina html
+	 */
+	public void loadHtml ()
+	{
+		InputStream inputStream = AboutDialog.class.getResourceAsStream("/resources/html/" + language.getSelectedLanguage () + ".html");
+		textPane.setContentType("text/html;charset=UTF-8");
+>>>>>>> V3.1-alertas
 		
 		if (inputStream != null)
 		{

@@ -20,7 +20,11 @@ import gui.Language;
 import gui.ValueChecks;
 import gui.controls.ButtonDelete;
 import gui.controls.ButtonEdit;
+<<<<<<< HEAD
 import gui.controls.ButtonAdd;
+=======
+import gui.controls.ButtonNew;
+>>>>>>> V3.1-alertas
 
 // ------------------------------------------------------------------------------------------------
 /***
@@ -29,6 +33,10 @@ import gui.controls.ButtonAdd;
  * @author G1
  *
  */
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class TabbedOrder extends JTabbedPane
 {
 	private MainFrame mainFrame;
@@ -42,7 +50,11 @@ public class TabbedOrder extends JTabbedPane
 
 	private RATableOperations rATableOperations;
 	
+<<<<<<< HEAD
 	private ButtonAdd buttonOperationAdd;
+=======
+	private ButtonNew buttonOperationAdd;
+>>>>>>> V3.1-alertas
 	private ButtonDelete buttonOperationDelete;
 	private ButtonEdit buttonOperationEdit;
 	
@@ -116,7 +128,11 @@ public class TabbedOrder extends JTabbedPane
 		JToolBar toolBarOperations = new JToolBar ();
 		panelOperations.add (toolBarOperations, BorderLayout.NORTH);
 
+<<<<<<< HEAD
 		buttonOperationAdd 	= new ButtonAdd(language);
+=======
+		buttonOperationAdd 	= new ButtonNew(language);
+>>>>>>> V3.1-alertas
 		buttonOperationAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mainFrame.showNewOperationDialog ();
@@ -201,7 +217,11 @@ public class TabbedOrder extends JTabbedPane
 					mainFrame.setCurrentOrder(currentOrder);
 					rATableOperations.setOrder(currentOrder);
 				} catch (bll.RAManagerException e) {
+<<<<<<< HEAD
 					ValueChecks.showExceptionMessage(this, e);
+=======
+					ValueChecks.showExceptionMessage (null, language, e);
+>>>>>>> V3.1-alertas
 				}
 				
 			}

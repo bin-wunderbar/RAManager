@@ -19,6 +19,10 @@ import gui.Language;
  * @author G1
  *
  */
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class MainFrameMenuBar extends JMenuBar 
 {
 	private Language language;
@@ -27,6 +31,10 @@ public class MainFrameMenuBar extends JMenuBar
 	private JMenuItem menuItemExit;
 	private JMenuItem menuItemPrint;
 	private JMenu menuManagement;
+<<<<<<< HEAD
+=======
+	private JMenuItem menuItemAlerts;
+>>>>>>> V3.1-alertas
 	private JMenuItem menuItemOrderClient;
 	private JMenuItem menuItemVehicle;
 	private JMenuItem menuItemClient;
@@ -83,6 +91,19 @@ public class MainFrameMenuBar extends JMenuBar
 		menuManagement = new JMenu(language.get ("menuManagement"));
 		add(menuManagement);
 
+<<<<<<< HEAD
+=======
+		menuItemAlerts = new JMenuItem (language.get ("userAlerts"));
+		menuItemAlerts.addActionListener (new ActionListener () {
+			public void actionPerformed (ActionEvent e) {
+				mainFrame.showAlertsDialog ();
+			}
+		});
+		menuItemAlerts.setIcon(new ImageIcon(MainFrame.class.getResource("/resources/alert.png")));
+		menuManagement.add (menuItemAlerts);
+		
+		menuManagement.addSeparator ();
+>>>>>>> V3.1-alertas
 		menuItemRole = new JMenuItem(language.get ("roleTitle"));
 		menuItemRole.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

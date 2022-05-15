@@ -5,6 +5,17 @@ import javax.swing.table.AbstractTableModel;
 import bll.IRAObject;
 
 //------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+/**
+ * Modelo de datos para la tabla de RAManager
+ * 
+ * @author G4
+ *
+ * @param <T> - Entidad generica
+ */
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class RATableModel <T> extends AbstractTableModel
 {
 	protected ArrayList <T> list;
@@ -14,6 +25,14 @@ public class RATableModel <T> extends AbstractTableModel
 	private Class<?>[] columnsClass;
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el modelo desde una matriz con los nombres de las columnas
+	 * 
+	 * @param columnNames - Matriz con los nombres de columnas
+	 */
+>>>>>>> V3.1-alertas
 	public RATableModel (String[] columnNames)
 	{
 		this.columnNames	= columnNames;
@@ -22,6 +41,15 @@ public class RATableModel <T> extends AbstractTableModel
 	}
 
 	// SOBRECARGA POR REQUISITO DE RÚBRICA
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el modelo desde una matriz con los nombres de las columnas y la lista de objetos
+	 * 
+	 * @param columnNames - Matriz con los nombres de columnas
+	 * @param list - Lista con los objetos a gestionar
+	 */
+>>>>>>> V3.1-alertas
 	public RATableModel (String[] columnNames, ArrayList <T> list)
 	{
 		this.columnNames	= columnNames;
@@ -29,6 +57,14 @@ public class RATableModel <T> extends AbstractTableModel
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Agrega un objeto al modelo
+	 * 
+	 * @param object - Objeto a agregar
+	 */
+>>>>>>> V3.1-alertas
 	public void add (T object)
 	{
 		list.add(object);
@@ -57,6 +93,14 @@ public class RATableModel <T> extends AbstractTableModel
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Ajusta la clase que gestionara cada columna para adecuar el editor correcto
+	 * 
+	 * @param columnsClass - Clase de objeto que gestionara la columna
+	 */
+>>>>>>> V3.1-alertas
 	public void setColumnsClass (Class<?>[] columnsClass)
 	{
 		this.columnsClass = columnsClass;
@@ -96,6 +140,14 @@ public class RATableModel <T> extends AbstractTableModel
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Ajusta la lista de objetos del modelo
+	 * 
+	 * @param list - Lista de objetos
+	 */
+>>>>>>> V3.1-alertas
 	public void setList (ArrayList <T> list)
 	{
 		this.list = list;
@@ -103,12 +155,29 @@ public class RATableModel <T> extends AbstractTableModel
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Devuelve la lista de objetos gestionada por el modelo
+	 * 
+	 * @return Lista de objetos
+	 */
+>>>>>>> V3.1-alertas
 	public ArrayList <T> getList ()
 	{
 		return list;
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Devuelve un objeto segun su indice 
+	 * 
+	 * @param index - Indice del objeto en la lista
+	 * @return El objeto
+	 */
+>>>>>>> V3.1-alertas
 	public T get (int index)
 	{
 		return list.get(index);
@@ -131,6 +200,13 @@ public class RATableModel <T> extends AbstractTableModel
 		this.dataChanged = dataChanged;
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * 
+	 * @param editableTable
+	 */
+>>>>>>> V3.1-alertas
 	public void setEditableTable (boolean editableTable)
 	{
 		this.editableTable = editableTable;

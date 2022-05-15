@@ -17,7 +17,11 @@ import javax.swing.event.DocumentListener;
 import bll.IRAObject;
 import bll.RAManager;
 import gui.Language;
+<<<<<<< HEAD
 import gui.controls.ButtonAdd;
+=======
+import gui.controls.ButtonNew;
+>>>>>>> V3.1-alertas
 import gui.controls.ButtonDelete;
 import gui.controls.ButtonEdit;
 import gui.controls.ButtonSave;
@@ -36,6 +40,7 @@ import java.awt.event.WindowEvent;
 
 // ------------------------------------------------------------------------------------------------
 /***
+<<<<<<< HEAD
  * Diálogo base para la creación de diálogos basados en la gestión de tablas de datos <br>
  * <br>
  * Diálogos que heredan de TableDialog son ClientDialog, EmployeeDialog, OrderDialog o VehiclesDialog
@@ -44,16 +49,36 @@ import java.awt.event.WindowEvent;
  *
  * @param <T>	Tipo elementos genéricos con los que trabajará la tabla
  */
+=======
+ * Dialogo base para la creacion de dialogos basados en la gestion de tablas de datos <br>
+ * <br>
+ * Dialogos que heredan de TableDialog son ClientDialog, EmployeeDialog, OrderDialog o VehiclesDialog
+ * 
+ * @author G1
+ *
+ * @param <T>	Tipo elementos genericos con los que trabajara la tabla
+ */
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public abstract class GenericEntityDialog <T> extends JDialog {
 	private JPanel contentPanel;
 
 	private JPanel panelControls;
+<<<<<<< HEAD
 	private JPanel panelFields;
 	private JPanel panelFieldsButtons;
 	private JToolBar toolBarFilter;
 	private JPanel panelTable;
 	
 	private JPanel panelSelection;
+=======
+	protected JPanel panelFields;
+	protected JPanel panelFieldsButtons;
+	private JToolBar toolBarFilter;
+	private JPanel panelTable;
+	
+	private JPanel panelBottom;
+>>>>>>> V3.1-alertas
 	private RATable <T> table;
 	private JTextField[] textFields;
 	private JButton[] buttons;
@@ -71,6 +96,7 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 
 	private JTextField textFieldFilter;
 
+<<<<<<< HEAD
 
 	// --------------------------------------------------------------------------------------------
 
@@ -82,6 +108,21 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	 * @param list			Lista de elementos para cargar en la tabla
 	 * @param title			Título del diálogo
 	 * @param windowBounds	Geometría del formulario superior
+=======
+	protected JButton buttonSelect;
+
+
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Inicializa el dialogo generico
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @param columnNames	- Nombres de las columnas
+	 * @param list			- Lista de objetos a gestionar
+	 * @param title			- Titulo del dialogo
+>>>>>>> V3.1-alertas
 	 */
 	public GenericEntityDialog (java.awt.Window owner, RAManager rAManager, Language language, String[] columnNames, ArrayList <T> list, String title) 
 	{
@@ -91,6 +132,20 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	}
 
 	// SOBRECARGA POR REQUISITO DE RÚBRICA CONSTRUCTOR CON LA OPCIÓN MODAL
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el dialogo generico
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @param columnNames	- Nombres de las columnas
+	 * @param list			- Lista de objetos a gestionar
+	 * @param title			- Titulo del dialogo
+	 * @param modal			- Especifica si el dialogo es modal
+	 */
+>>>>>>> V3.1-alertas
 	public GenericEntityDialog (java.awt.Window owner, RAManager rAManager, Language language, String[] columnNames, ArrayList <T> list, String title, boolean modal) 
 	{
 		super (owner);
@@ -99,6 +154,19 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el dialogo generico
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @param columnNames	- Nombres de las columnas
+	 * @param list			- Lista de objetos a gestionar
+	 * @param title			- Titulo del dialogo
+	 */
+>>>>>>> V3.1-alertas
 	private final void initComponents (java.awt.Window owner, RAManager rAManager, Language language, String[] columnNames, ArrayList <T> list, String title)
 	{
 		setModal (true);
@@ -126,7 +194,11 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 		panelControls		= new JPanel ();
 		panelFieldsButtons	= new JPanel ();
 		panelFields 		= new JPanel ();
+<<<<<<< HEAD
 		panelSelection		= new JPanel ();
+=======
+		panelBottom		= new JPanel ();
+>>>>>>> V3.1-alertas
 		toolBarFilter		= new JToolBar ();
 		panelTable			= new JPanel ();
 
@@ -138,7 +210,11 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 		
 		FlowLayout fl_panelSelection = new FlowLayout ();
 		fl_panelSelection.setAlignment(FlowLayout.RIGHT);
+<<<<<<< HEAD
 		panelSelection.setLayout (fl_panelSelection);
+=======
+		panelBottom.setLayout (fl_panelSelection);
+>>>>>>> V3.1-alertas
 		
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -148,7 +224,11 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 			JToolBar toolBar = new JToolBar();
 			contentPanel.add(toolBar, BorderLayout.CENTER);
 			{
+<<<<<<< HEAD
 				ButtonAdd buttonAdd = new ButtonAdd (language);
+=======
+				ButtonNew buttonAdd = new ButtonNew (language);
+>>>>>>> V3.1-alertas
 				buttonAdd.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						if (changed)
@@ -220,7 +300,21 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 			panelTable.add (new JScrollPane (table), BorderLayout.CENTER);
 		}
 		
+<<<<<<< HEAD
 		JButton buttonSelect = new JButton (language.get ("selectButton"));
+=======
+		JButton buttonClose = new JButton (language.get("closeButton"));
+		buttonClose.addActionListener (new ActionListener () {
+			public void actionPerformed (ActionEvent actionEvent)
+			{
+				windowClosingEvent ();
+			}
+		});
+		
+		panelBottom.add (buttonClose);
+
+		buttonSelect = new JButton (language.get ("selectButton"));
+>>>>>>> V3.1-alertas
 		buttonSelect.addActionListener(new ActionListener () {
 			public void actionPerformed (ActionEvent actionEvent)
 			{
@@ -235,8 +329,13 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 			}
 		});
 		
+<<<<<<< HEAD
 		getContentPane().add (panelSelection, BorderLayout.SOUTH);
 		panelSelection.add (buttonSelect);
+=======
+		getContentPane().add (panelBottom, BorderLayout.SOUTH);
+		panelBottom.add (buttonSelect);
+>>>>>>> V3.1-alertas
 		
 		loadItems (list);
 		initControls ();
@@ -281,6 +380,12 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Aplica el filtro
+	 */
+>>>>>>> V3.1-alertas
 	public void applyFilter ()
 	{
 		refreshTable (textFieldFilter.getText().toLowerCase ());
@@ -290,7 +395,11 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	/***
 	 * Carga los elementos en la tabla
 	 * 
+<<<<<<< HEAD
 	 * @param rAObjects	Lista de objetos genérica
+=======
+	 * @param rAObjects	- Lista de objetos generica
+>>>>>>> V3.1-alertas
 	 */
 	public void loadItems (ArrayList <T> rAObjects)
 	{
@@ -299,9 +408,15 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 
 	// --------------------------------------------------------------------------------------------
 	/***
+<<<<<<< HEAD
 	 * Ajusta los valores de lso campos a partir de un array de objetos
 	 * 
 	 * @param objectRow Array de objetos con los datos para rellenar
+=======
+	 * Ajusta los valores de los campos a partir de un array de objetos
+	 * 
+	 * @param iRAObject - Interfaz de objeto de rekord autoak
+>>>>>>> V3.1-alertas
 	 */
 	public void setTextFieldsOnEditEvent (IRAObject iRAObject)
 	{
@@ -315,7 +430,11 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	// --------------------------------------------------------------------------------------------
 	/***
 	 * Devuelve el array de campos de texto completo del diálogo
+<<<<<<< HEAD
 	 * @return
+=======
+	 * @return Array de campos de texto
+>>>>>>> V3.1-alertas
 	 */
 	public String[] getFieldsText ()
 	{
@@ -366,8 +485,13 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	
 	// --------------------------------------------------------------------------------------------
 	/***
+<<<<<<< HEAD
 	 * Muestra el diálogo de confirmación para guardar los cambios
 	 * @return
+=======
+	 * Muestra el dialogo de confirmación para guardar los cambios
+	 * @return El identificador de la opcion selecionada
+>>>>>>> V3.1-alertas
 	 */
 	protected int saveDialog ()
 	{
@@ -409,6 +533,7 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 		}
 	}
 	
+<<<<<<< HEAD
 	// --------------------------------------------------------------------------------------------
 	// MÉTODOS ABSTRACTOS, se implementan en las clases derivadas, cuando se pueda concretar las acciones 
 	// para los siguientes eventos
@@ -425,6 +550,35 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	 * @return
 	 */
 	protected abstract void saveFields ();
+=======
+	/***
+	 * Evento de guardado de registro
+	 */
+	protected void saveEvent ()
+	{
+		if (rAManager.getActiveLogin().isPermissionWrite())
+		{
+			saveFields ();
+		}
+		else
+		{
+			showPermissionDeniedDialog();
+		}
+	}
+	
+	// --------------------------------------------------------------------------------------------
+	/***
+	 * Evento click del raton
+	 * @param mouseEvent	- Objeto de evento de raton
+	 */
+	protected void mouseClickedEvent (MouseEvent mouseEvent)
+	{
+		if (mouseEvent.getClickCount () == 2)
+		{
+			selectedEvent();
+		}
+	}
+>>>>>>> V3.1-alertas
 
 	/***
 	 * Evento de agregado de registro nuevo
@@ -437,6 +591,10 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 			{
 				selectedObjectId = RAManager.NO_ID;
 				setTextFieldsDefaults ();
+<<<<<<< HEAD
+=======
+				onNewEvent ();
+>>>>>>> V3.1-alertas
 			}
 		}
 		else
@@ -444,6 +602,7 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 			showPermissionDeniedDialog();
 		}
 	}
+<<<<<<< HEAD
 	
 	protected abstract void setTextFieldsDefaults ();
 	
@@ -474,6 +633,37 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 		}
 	}
 
+=======
+
+	/**
+	 * Evento producido al crear un registro nuevo
+	 */
+	protected void onNewEvent () {}
+
+	
+	// --------------------------------------------------------------------------------------------
+	// MÉTODOS ABSTRACTOS  
+	// --------------------------------------------------------------------------------------------
+	
+	// --------------------------------------------------------------------------------------------
+	
+	/***
+	 * Inicializa el diálogo de gestión de tablas de datos
+	 */
+	protected abstract void initTableDialog ();
+	
+	/***
+	 * Guarda los datos de los campos de texto
+	 * 
+	 */
+	protected abstract void saveFields ();
+
+	/**
+	 * Ajusta los valores por defecto en los campos de texto 
+	 */
+	protected abstract void setTextFieldsDefaults ();
+	
+>>>>>>> V3.1-alertas
 	// --------------------------------------------------------------------------------------------
 	// GETTERS 
 	// --------------------------------------------------------------------------------------------
@@ -490,7 +680,11 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	// --------------------------------------------------------------------------------------------
 	/***
 	 * Devuelve los campos de texto
+<<<<<<< HEAD
 	 * @return campos de texto
+=======
+	 * @return Los Campos de texto
+>>>>>>> V3.1-alertas
 	 */
 	public JTextField[] getTextFields ()
 	{
@@ -500,7 +694,11 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	// --------------------------------------------------------------------------------------------
 	/***
 	 * Devuelve los botones del panel derecho
+<<<<<<< HEAD
 	 * @return botones
+=======
+	 * @return Los botones
+>>>>>>> V3.1-alertas
 	 */
 	public JButton[] getButtons ()
 	{
@@ -550,7 +748,11 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	/***
+=======
+	/**
+>>>>>>> V3.1-alertas
 	 * Operaciones previas a la llamada del evento de cambio de datos al editar un registro
 	 * @param textField
 	 */
@@ -562,7 +764,11 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 		}
 	}
 	
+<<<<<<< HEAD
 	/***
+=======
+	/**
+>>>>>>> V3.1-alertas
 	 * Bloquea el acceso al panel de botones lateral
 	 */
 	protected void lockButtons ()
@@ -625,6 +831,7 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	protected void refreshTable ()
 	{
 		refreshTable (textFieldFilter.getText().toLowerCase ());
@@ -634,11 +841,42 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	protected abstract void deleteEvent (ArrayList <Integer> ids);
 	
 	// --------------------------------------------------------------------------------------------
+=======
+	/**
+	 * Refresca la tabla
+	 */
+	protected void refreshTable ()
+	{
+		refreshTable (textFieldFilter.getText().toLowerCase ());
+		setTextFieldsDefaults();
+	}
+	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Evento para la eliminacion de objetos segun su lista de ids
+	 * @param ids - Lista de ids
+	 */
+	protected abstract void deleteEvent (ArrayList <Integer> ids);
+	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Refresca la tabla segun el filtro
+	 * 
+	 * @param filter - Filtro
+	 */
+>>>>>>> V3.1-alertas
 	protected abstract void refreshTable (String filter);
 	
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	protected final void editEvent() 
+=======
+	/**
+	 * Evento para la edicion de un registro
+	 */
+	protected void editEvent() 
+>>>>>>> V3.1-alertas
 	{
 		if (rAManager.getActiveLogin ().isPermissionWrite())
 		{
@@ -668,6 +906,15 @@ public abstract class GenericEntityDialog <T> extends JDialog {
 	
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Habilita un boton de la lista
+	 * 
+	 * @param row 				- Fila en la que se encuentra el boton
+	 * @param actionListener	- Manejador del evento de accion
+	 */
+>>>>>>> V3.1-alertas
 	public void enableButton (int row, ActionListener actionListener)
 	{
 		textFields [row].setEditable (false);

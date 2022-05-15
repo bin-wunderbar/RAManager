@@ -17,7 +17,11 @@ public class BService extends Service implements IRAObject
 
 	// --------------------------------------------------------------------------------------------
 	/***
+<<<<<<< HEAD
 	 * Inicialización de un servicio
+=======
+	 * Inicializa un servicio de la capa de negocio a partir de uno de la capa de datos 
+>>>>>>> V3.1-alertas
 	 * @param service			- Servicio efectuado  
 	 */
 	public BService(Service service)
@@ -26,6 +30,12 @@ public class BService extends Service implements IRAObject
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa un servicio de la capa de negocio
+	 */
+>>>>>>> V3.1-alertas
 	public BService ()
 	{
 		

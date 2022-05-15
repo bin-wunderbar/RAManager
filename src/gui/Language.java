@@ -35,9 +35,13 @@ public class Language
 	private String[] providerColumnNames;
 	private String[] operationColumnNames;
 	private String[] serviceColumnNames;
+<<<<<<< HEAD
 	
 	
 
+=======
+	private String[] alertColumnNames;
+>>>>>>> V3.1-alertas
 	
 	// --------------------------------------------------------------------------------------------
 	/***
@@ -89,7 +93,11 @@ public class Language
 				get ("columnRegisterNumber"),
 				get ("columnModel"),
 				get ("columnColor"),
+<<<<<<< HEAD
 				get ("idClient")
+=======
+				get ("columnClient")
+>>>>>>> V3.1-alertas
 		};
 		
 		employeColumnNames = new String[] {
@@ -137,17 +145,39 @@ public class Language
 			get ("columnDescription"),
 			get ("columnHourlyPrice")
 		};
+<<<<<<< HEAD
 		
 	}
 	
 	// --------------------------------------------------------------------------------------------
+=======
+
+		alertColumnNames = new String[] {
+			get ("columnEventTime"),
+			get ("columnNote"),
+			get ("columnDone"),
+		};
+
+	}
+	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Carga un archivo de propiedades utilizado como diccionario de idioma
+	 * 
+	 * @param languageName - Nombre del archivo de propiedades
+	 */
+>>>>>>> V3.1-alertas
 	private void loadFromPropertiesFile (String languageName)
 	{
 		try {
 			InputStream inputStream = getClass().getResourceAsStream ("/" + LANGUAGE_DIRECTORY + "/" + languageName + ".txt");
 
 			dictionary = RAConfig.getDictionaryFromStream (inputStream);
+<<<<<<< HEAD
 			
+=======
+			inputStream.close();
+>>>>>>> V3.1-alertas
 		} catch (Exception e) {
 			rALogging.println(RALogging.LEVEL_ERROR, "Language::loadFromPropertiesFile (...) - Can't load language");
 			e.printStackTrace();
@@ -159,16 +189,41 @@ public class Language
 	// --------------------------------------------------------------------------------------------
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	public String get (String key)
 	{
 		String value = dictionary.get(key); 
+=======
+	/**
+	 * Devuelve el valor de diccionario segun su clave
+	 * 
+	 * @param key - Clave a buscar
+	 * @return Valor de la clave si existe, la propia clave en caso contrario
+	 */
+	public String get (String key)
+	{
+		String value = dictionary.get(key); 
+		
+>>>>>>> V3.1-alertas
 		return value == null ? key : value;
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	/**
 	 * - La función devuelve los nombres de dominio {"es", "en", "eus"}, lista los archivos disponibles en el directorio de recursos
 	 *  extrayendo los nombres que coincidirán con el dominio tipo es.txt, en.txt, etc...
+=======
+	public String getFromErrorCode (int errorCode)
+	{
+		return dictionary.get ("errorCode_" + errorCode);
+	}
+	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * - La funcion devuelve los nombres de dominio {"es", "en", "eus"}, lista los archivos disponibles en el directorio de recursos
+	 *  extrayendo los nombres que coincidiran con el dominio tipo es.txt, en.txt, etc...
+>>>>>>> V3.1-alertas
 	 * 
 	 * @return the domainNames
 	 */
@@ -202,7 +257,11 @@ public class Language
 				        String entryName = entries.nextElement().getName();
 				        if (entryName.contains(LANGUAGE_DIRECTORY))
 				        {
+<<<<<<< HEAD
 				            String fileName = entryName.substring (entryName.lastIndexOf (File.separatorChar) + 1);
+=======
+				            String fileName = entryName.substring (entryName.lastIndexOf ("/") + 1);
+>>>>>>> V3.1-alertas
 				            
 				            if (!fileName.isEmpty())
 				            {
@@ -213,7 +272,11 @@ public class Language
 				        }
 				    }
 				    
+<<<<<<< HEAD
 				    domainNames = this.getDomainNamesFromFileNames(fileNamesString.split ("\n"));
+=======
+				    domainNames = getDomainNamesFromFileNames(fileNamesString.split ("\n"));
+>>>>>>> V3.1-alertas
 				    
 				    jar.close();
 				}
@@ -228,6 +291,15 @@ public class Language
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Devuelve los nombres de dominio (es, en, eus, etc..) para los nombres de archivo entregados
+	 * 
+	 * @param fileNames - Nombres de archivo
+	 * @return - Matriz con los nombres de dominio
+	 */
+>>>>>>> V3.1-alertas
 	private String[] getDomainNamesFromFileNames (String[] fileNames)
 	{
 		String[] domainNames = new String[fileNames.length];
@@ -250,7 +322,10 @@ public class Language
 		return clientColumnNames;
 	}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> V3.1-alertas
 	/**
 	 * @return the orderColumnNames
 	 */
@@ -258,6 +333,13 @@ public class Language
 		return orderColumnNames;
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * 
+	 * @return the providerColumnNames
+	 */
+>>>>>>> V3.1-alertas
 	public String[] getProviderColumnNames() {
 		return providerColumnNames;
 	}
@@ -276,27 +358,75 @@ public class Language
 		return employeColumnNames;
 	}
 
+<<<<<<< HEAD
 
+=======
+	/**
+	 * 
+	 * @return the roleColumnNames
+	 */
+>>>>>>> V3.1-alertas
 	public String[] getRoleColumnNames() {
 		return roleColumnNames;
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * 
+	 * @return the materialColumnNames
+	 */
+>>>>>>> V3.1-alertas
 	public String[] getMaterialColumnNames() {
 		return materialColumnNames;
 	}
 
+<<<<<<< HEAD
 
+=======
+	/**
+	 * 
+	 * @return the operationColumnNames
+	 */
+>>>>>>> V3.1-alertas
 	public String[] getOperationColumnNames() {
 		return operationColumnNames;
 	}
 
+<<<<<<< HEAD
 
+=======
+	/**
+	 * 
+	 * @return the serviceColumnNames
+	 */
+>>>>>>> V3.1-alertas
 	public String[] getServiceColumnNames() {
 		return serviceColumnNames;
 	}
 
+<<<<<<< HEAD
 	public String getSelectedLanguage() {
 		return domainName;
 	}
+=======
+	/**
+	 * 
+	 * @return the domainName
+	 */
+	public String getSelectedLanguage() {
+		return domainName;
+	}
+
+	/**
+	 * 
+	 * @return the alert column names
+	 */
+	public String[] getAlertColumnNames() {
+
+		return alertColumnNames;
+	}
+
+>>>>>>> V3.1-alertas
 	
 }

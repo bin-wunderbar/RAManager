@@ -20,7 +20,17 @@ import java.awt.event.ActionEvent;
 
 
 // ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 
+=======
+/**
+ * Dialogo de seleccion de fecha y hora
+ * 
+ * @author G4
+ *
+ */
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class DateTimePickerDialog extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -29,7 +39,11 @@ public class DateTimePickerDialog extends JDialog {
 
 	// --------------------------------------------------------------------------------------------	
 	/***
+<<<<<<< HEAD
 	 * Diálogo de selección de fecha y hora modal
+=======
+	 * Dialogo de selección de fecha y hora modal
+>>>>>>> V3.1-alertas
 	 * 
 	 * @param owner		Diálogo superior
 	 * @param language	Objeto de idioma
@@ -57,6 +71,15 @@ public class DateTimePickerDialog extends JDialog {
 	
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Iniciliza los componentes del dialogo
+	 * 
+	 * @param owner 	- Ventana propietaria
+	 * @param language 	- Objeto de idioma
+	 */
+>>>>>>> V3.1-alertas
 	private final void initComponents (JDialog owner, Language language)
 	{
 		Rectangle bounds = owner.getBounds();

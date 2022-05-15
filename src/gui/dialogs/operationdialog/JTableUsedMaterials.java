@@ -21,6 +21,10 @@ import gui.ValueChecks;
  * @author G1
  *
  */
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class JTableUsedMaterials extends JTable 
 {
 	public final static int COLUMN_ID 				= 0;
@@ -49,12 +53,34 @@ public class JTableUsedMaterials extends JTable
 	}
 
 	// SOBRECARGA POR REQUISITO DE RÚBRICA
+<<<<<<< HEAD
+=======
+	/***
+	 * Inicializa la tabla de materiales usados
+	 * 
+	 * @param language		Idioma a aplicar en la tabla
+	 * @param rAManager		Sistema operativo de la aplicación
+	 * @param valueChecks	Gestor de verificaciones de datos y sus rangos
+	 * @param columnNames	Matriz con los nombres de columnas
+	 */
+>>>>>>> V3.1-alertas
 	public JTableUsedMaterials (Language language, RAManager rAManager, ValueChecks valueChecks, String[] columnNames)
 	{
 		initTable (language, rAManager, valueChecks, columnNames);
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/***
+	 * Inicializa la tabla de materiales usados
+	 * 
+	 * @param language		Idioma a aplicar en la tabla
+	 * @param rAManager		Sistema operativo de la aplicación
+	 * @param valueChecks	Gestor de verificaciones de datos y sus rangos
+	 * @param columnNames	Matriz con los nombres de columnas
+	 */
+>>>>>>> V3.1-alertas
 	private final void initTable (Language language, RAManager rAManager, ValueChecks valueChecks, String[] columnNames)
 	{
 		this.rAManager		= rAManager;
@@ -116,7 +142,11 @@ public class JTableUsedMaterials extends JTable
 					catch (bll.RAManagerException e) 
 					{
 						rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 						ValueChecks.showExceptionMessage(this, e);
+=======
+						ValueChecks.showExceptionMessage(null, language, e);
+>>>>>>> V3.1-alertas
 					}
 
 				}
@@ -222,6 +252,15 @@ public class JTableUsedMaterials extends JTable
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Devuelve el nombre de un material por su identificador
+	 * 
+	 * @param idMaterial - Identificador del material
+	 * @return El nombre del material
+	 */
+>>>>>>> V3.1-alertas
 	private String getMaterialNameById (int idMaterial)
 	{
 		BMaterial material = null;
@@ -233,7 +272,11 @@ public class JTableUsedMaterials extends JTable
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage (null, language, e);
+>>>>>>> V3.1-alertas
 		}
 		
 		return material != null ? material.getName() : language.get ("delete") + idMaterial;
@@ -300,7 +343,11 @@ public class JTableUsedMaterials extends JTable
 			 */
 			
 			BUsedMaterial bUsedMaterial = new BUsedMaterial (
+<<<<<<< HEAD
 					id <= RAManager.NO_ID ? RAManager.ID_AUTO : id,
+=======
+					id <= RAManager.NO_ID ? RAManager.ID_NEW : id,
+>>>>>>> V3.1-alertas
 					Double.parseDouble ("" + rowMaterial.get (COLUMN_UNITS)),
 					(int)rowMaterial.get (COLUMN_ID_MATERIAL),
 					RAManager.NO_ID,
@@ -339,6 +386,26 @@ public class JTableUsedMaterials extends JTable
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	public ArrayList <Integer> getSelectedRegisterIds (int[] selectedItems)
+	{
+		ArrayList <Integer> ids = new ArrayList <> ();
+		
+		Vector <Vector> dataVector = tableModel.getDataVector();
+		
+		for (int position : selectedItems)
+		{
+			int id = (int)(dataVector.get(position).get(COLUMN_ID));
+			if (id > RAManager.NO_ID) ids.add(id);
+		}
+		
+		return ids;
+	}
+
+	// --------------------------------------------------------------------------------------------
+>>>>>>> V3.1-alertas
 	/***
 	 * Elimina los materiales seleccionados
 	 * @param selectedMaterials	Array con los índices de los materiales
@@ -353,7 +420,11 @@ public class JTableUsedMaterials extends JTable
 
 	// --------------------------------------------------------------------------------------------
 	/**
+<<<<<<< HEAD
 	 * Vacía la tabla 
+=======
+	 * Vacia la tabla 
+>>>>>>> V3.1-alertas
 	 */
 	public void clearData ()
 	{

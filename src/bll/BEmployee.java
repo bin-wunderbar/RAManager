@@ -55,8 +55,49 @@ public class BEmployee extends Employee implements IRAObject
 
 	// --------------------------------------------------------------------------------------------
 	/**
+<<<<<<< HEAD
 	 * Sobrescribe el método equals para comparar con otros empleados por ID
 	 */
+=======
+	 * Calcula la cominsión aplicable a un empleado según el número de operaciones y clientes atendidos en los últimos 30 días
+	 * 100 para 50 o más operaciones atendidas.
+	 * 50 para 20 o más clientes atendidos.
+	 * 
+	 * @param monthOperationsString - Operaciones realizadas en los úlitmos 30 días
+	 * @param monthClientsString - Clientes atendidos en los últimos 30 días
+	 * @return Comisión aplicable
+	 */
+	public static double getCommission (String monthOperationsString, String monthClientsString)
+	{
+		double commission 		= 0.0;
+		double monthOperations 	= 0.0;
+		double monthClients 	= 0.0;
+		
+		try
+		{
+			monthOperations = Double.parseDouble(monthOperationsString);
+			monthClients 	= Double.parseDouble(monthClientsString);
+
+			if (monthOperations >= 50)
+			{
+				commission += 100;
+			}
+			
+			if (monthClients >= 20)
+			{
+				commission += 50;
+			}
+		}
+		catch (NumberFormatException exception)
+		{
+			System.err.println ("bll.BEmployee::getCommission () - Value conversion error");
+		}
+		
+		return commission;
+	}	
+	
+	// --------------------------------------------------------------------------------------------
+>>>>>>> V3.1-alertas
 	@Override
 	public boolean equals (Object object)
 	{
@@ -64,9 +105,12 @@ public class BEmployee extends Employee implements IRAObject
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	/***
 	 * Sobrescribe el método toString para devolver el nombre y apellidos del empleado
 	 */
+=======
+>>>>>>> V3.1-alertas
 	@Override
 	public String toString ()
 	{
@@ -107,6 +151,14 @@ public class BEmployee extends Employee implements IRAObject
 		return null;
 	}	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Devuelve una cadena de asteriscos que reemplaza la contrasenna
+	 * 
+	 * @return cadena de asteriscos
+	 */
+>>>>>>> V3.1-alertas
 	public String getAsterisks ()
 	{
 		String asterisks = "";
@@ -147,29 +199,66 @@ public class BEmployee extends Employee implements IRAObject
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param rol the rol to set
+=======
+	 * @param role the role to set
+>>>>>>> V3.1-alertas
 	 */
 	public void setRole (BRole role) {
 		this.role = role;
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * @return the isPermissionWrite
+	 */
+>>>>>>> V3.1-alertas
 	public boolean isPermissionWrite() {
 		return role.isPermissionWrite();
 	}
 
+<<<<<<< HEAD
 	public boolean isPermissionRead() {
 		return role.isPermissionRead();
 	}
 
+=======
+	/**
+	 * @return the isPermissionRead
+	 */
+	public boolean isPermissionRead() {
+		return role.isPermissionRead();
+	}
+	
+	/**
+	 * @return the rol
+	 */
+>>>>>>> V3.1-alertas
 	public boolean isPermissionRemove() {
 		return role.isPermissionRemove();
 	}
 	
+<<<<<<< HEAD
+=======
+	/**
+	 * @return the isPermissionManagement
+	 */
+>>>>>>> V3.1-alertas
 	public boolean isPermissionManagement () {
 		return role.isPermissionManagement();
 	}
 
+<<<<<<< HEAD
 	public boolean verifyPassword(String password) {
 		return getPassword ().equals(password);
+=======
+	/**
+	 * @return cierto si la contrasenna es correcta
+	 */
+	public boolean verifyPassword (String password) {
+		return super.verifyPassword (password);
+>>>>>>> V3.1-alertas
 	}
 }

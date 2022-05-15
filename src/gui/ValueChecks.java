@@ -2,12 +2,17 @@ package gui;
 
 import java.util.Locale;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> V3.1-alertas
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+<<<<<<< HEAD
 import java.awt.Window;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -15,6 +20,18 @@ import java.io.StringWriter;
 // ------------------------------------------------------------------------------------------------
 /***
  * Clase de comprobación de los valores introducidos para el proyecto Rekord Autoak (RA)
+=======
+
+import bll.RAManager;
+import bll.RAManagerException;
+import gui.dialogs.ExceptionDialog;
+
+import java.awt.Window;
+
+// ------------------------------------------------------------------------------------------------
+/***
+ * Clase de comprobacion de los valores introducidos para el proyecto Rekord Autoak (RA)
+>>>>>>> V3.1-alertas
  * @author G1
  *
  */
@@ -59,14 +76,43 @@ public class ValueChecks
 
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	public boolean isValidPassword(JPasswordField passwordField) 
+=======
+	public boolean isSelectedObject(Object object, String label) 
+	{
+		if (object == null)
+		{
+			JOptionPane.showMessageDialog(owner, "(" + label + ")" + language.get("emptySelectedField"), language.get("errorText"), JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		
+		return true;
+	}
+
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Comprueba si una contrasenna cumple los requisitos de seguridad
+	 * 
+	 * @param passwordField - Campo de contrasenna
+	 * @return - Cierto si cumple los requisitos
+	 */
+	public boolean isValidPassword(JPasswordField passwordField, String label) 
+>>>>>>> V3.1-alertas
 	{
 		if (passwordField.getPassword().length < PASSWORDFIELD_MIN_LENGTH)
 		{
 			JOptionPane.showMessageDialog (owner, 
+<<<<<<< HEAD
 					String.format (language.get("minLengthPassword"), PASSWORDFIELD_MIN_LENGTH), 
 					language.get ("ErrorText"), JOptionPane.ERROR_MESSAGE);
 			
+=======
+					"(" + label + ") - " + String.format (language.get("minLengthPassword"), PASSWORDFIELD_MIN_LENGTH), 
+					language.get ("ErrorText"), JOptionPane.ERROR_MESSAGE);
+			
+			passwordField.selectAll();
+>>>>>>> V3.1-alertas
 			passwordField.requestFocus();
 			return false;
 		}
@@ -81,11 +127,23 @@ public class ValueChecks
 	 * @param textFieldName - Campo de texto que recoge el nombre
 	 * @return - Cierto cuando la validación se cumpla y falso en caso contrario
 	 */
+<<<<<<< HEAD
 	public boolean isValidTextField (JTextField textFieldName)
 	{
 		if (textFieldName.getText ().length() < TEXTFIELD_MIN_LENGTH)
 		{
 			JOptionPane.showMessageDialog (owner, String.format(language.get ("minLengthTextField"), TEXTFIELD_MIN_LENGTH), language.get ("errorText"), JOptionPane.ERROR_MESSAGE);
+=======
+	public boolean isValidTextField (JTextField textFieldName, String label)
+	{
+		if (textFieldName.getText ().length() < TEXTFIELD_MIN_LENGTH)
+		{
+			JOptionPane.showMessageDialog (owner, 
+					getExtendInfo (label, textFieldName.getText ()) + String.format(language.get ("minLengthTextField"), TEXTFIELD_MIN_LENGTH), 
+					language.get ("errorText"), 
+					JOptionPane.ERROR_MESSAGE
+					);
+>>>>>>> V3.1-alertas
 			setFocus (textFieldName);
 			return false;
 		}
@@ -99,9 +157,15 @@ public class ValueChecks
 	 * @param textFieldPhone - Campo de texto que recoge el teléfono
 	 * @return - Cierto cuando la validación se cumpla y falso en caso contrario
 	 */
+<<<<<<< HEAD
 	public boolean isValidPhone(JTextField textFieldPhone)
 	{
 		return isValidPattern (textFieldPhone, "^\\d{11}$", "No es un teléfono válido.");
+=======
+	public boolean isValidPhone(JTextField textFieldPhone, String label)
+	{
+		return isValidPattern (textFieldPhone, "^\\d{11}$", "No es un teléfono válido.", label);
+>>>>>>> V3.1-alertas
 	}
 	
 	// --------------------------------------------------------------------------------------------
@@ -110,9 +174,18 @@ public class ValueChecks
 	 * @param textFieldEmail - Campo de texto que recoge el Email
 	 * @return - Cierto cuando la validación se cumpla y falso en caso contrario
 	 */
+<<<<<<< HEAD
 	public boolean isValidEmail(JTextField textFieldEmail) 
 	{
 		return isValidPattern (textFieldEmail, "^([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?$", language.get ("invalidEmail"));
+=======
+	public boolean isValidEmail(JTextField textFieldEmail, String label)
+	{
+		return isValidPattern (textFieldEmail, 
+				"^([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?$",
+				label,
+				language.get ("invalidEmail"));
+>>>>>>> V3.1-alertas
 	}
 	
 	// --------------------------------------------------------------------------------------------
@@ -121,9 +194,15 @@ public class ValueChecks
 	 * @param textFieldDNI - Campo de texto que recoge el DNI
 	 * @return - Cierto cuando la validación se cumpla y falso en caso contrario
 	 */
+<<<<<<< HEAD
 	public boolean isValidNIF (JTextField textFieldDNI)
 	{
 		return isValidPattern (textFieldDNI, "[0-9]{7,8}[A-Z a-z]", language.get ("invalidDNI"));
+=======
+	public boolean isValidNIF (JTextField textFieldDNI, String label)
+	{
+		return isValidPattern (textFieldDNI, "[0-9]{7,8}[A-Z a-z]",  label, language.get ("invalidDNI"));
+>>>>>>> V3.1-alertas
 	}
 	
 	// --------------------------------------------------------------------------------------------
@@ -134,7 +213,11 @@ public class ValueChecks
 	 * @param message - Mensaje
 	 * @return - Cierto cuando la validación se cumpla y falso en caso contrario
 	 */
+<<<<<<< HEAD
 	public boolean isValidPattern (JTextField textField, String pattern, String message)
+=======
+	public boolean isValidPattern (JTextField textField, String pattern, String label, String message)
+>>>>>>> V3.1-alertas
 	{
 		boolean returnValue;
 		
@@ -145,7 +228,11 @@ public class ValueChecks
         
 		if (!returnValue)
 		{
+<<<<<<< HEAD
 			JOptionPane.showMessageDialog(owner, message, language.get ("errorText"), JOptionPane.ERROR_MESSAGE);
+=======
+			JOptionPane.showMessageDialog(owner, getExtendInfo (label, textField.getText()) + message, language.get ("errorText"), JOptionPane.ERROR_MESSAGE);
+>>>>>>> V3.1-alertas
 			setFocus (textField);
 		}
 		
@@ -153,12 +240,25 @@ public class ValueChecks
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	private String getExtendInfo (String label, String text)
+	{
+		return "(" + label + ":" + text + ") - ";  
+	}
+	
+	// --------------------------------------------------------------------------------------------
+>>>>>>> V3.1-alertas
 	/**
 	 * Verifica que el campo tenga un único carácter
 	 * @param textField - Campo de texto a verificar
 	 * @return - Cierto cuando la validación se cumpla y falso en caso contrario
 	 */
+<<<<<<< HEAD
 	public boolean isCharacterValue (JTextField textField)
+=======
+	public boolean isCharacterValue (JTextField textField, String label)
+>>>>>>> V3.1-alertas
 	{
 		boolean returnValue = false;
 		
@@ -169,7 +269,11 @@ public class ValueChecks
 		}
 		else
 		{
+<<<<<<< HEAD
 			JOptionPane.showMessageDialog (owner, language.get ("isNotValidCharacter"), language.get ("errorText"), JOptionPane.ERROR_MESSAGE);
+=======
+			JOptionPane.showMessageDialog (owner, language.get ("isNotValidCharacter") + " (" + label + ")", language.get ("errorText"), JOptionPane.ERROR_MESSAGE);
+>>>>>>> V3.1-alertas
 			setFocus (textField);
 		}
 		
@@ -182,9 +286,15 @@ public class ValueChecks
 	 * @param textField - Campo de texto con el impuesto al valor añadido
 	 * @return - Cierto cuando la validación se cumpla y falso en caso contrario
 	 */
+<<<<<<< HEAD
 	public boolean isValidIVA (JTextField textField)
 	{
 		return rangeDoubleOf (textField, language.get ("rangeOfIVA"), IVA_MIN_VALUE, IVA_MAX_VALUE);
+=======
+	public boolean isValidIVA (JTextField textField, String label)
+	{
+		return rangeDoubleOf (textField, language.get ("rangeOfIVA") + " (" + label + ")", IVA_MIN_VALUE, IVA_MAX_VALUE);
+>>>>>>> V3.1-alertas
 	}
 
 	// --------------------------------------------------------------------------------------------
@@ -197,7 +307,10 @@ public class ValueChecks
 	{
 		return rangeDoubleOf (textField, language.get("rangeOfPrintFontSize"), PRINT_FONT_SIZE_MIN_VALUE, PRINT_FONT_SIZE_MAX_VALUE);
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> V3.1-alertas
 	
 	// --------------------------------------------------------------------------------------------
 	/***
@@ -328,6 +441,15 @@ public class ValueChecks
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Comprueba si el campo de texto contiene valores enteros correctos
+	 * 
+	 * @param textField - Campo de texto 
+	 * @return - Cierto si contiene valores enteros
+	 */
+>>>>>>> V3.1-alertas
 	public boolean isInteger (JTextField textField) 
 	{
 		boolean returnValue = false;
@@ -348,7 +470,11 @@ public class ValueChecks
 	
 	// --------------------------------------------------------------------------------------------
 	/***
+<<<<<<< HEAD
 	 * Comprobación del rango
+=======
+	 * Comprobacion del rango
+>>>>>>> V3.1-alertas
 	 * @param value - Valor
 	 * @param rangeMessage - Mensaje de error de rango
 	 * @param minValue - Valor mínimo
@@ -400,6 +526,7 @@ public class ValueChecks
 
 	// --------------------------------------------------------------------------------------------
 	/**
+<<<<<<< HEAD
 	 * Muestra una excepción en un dilálogo
 	 * @param parent		Componente padre
 	 * @param exception		Excepción a mostrar
@@ -412,4 +539,58 @@ public class ValueChecks
 		
 		JOptionPane.showMessageDialog (parent, stringWriter.toString(), "Exception", JOptionPane.ERROR_MESSAGE);
 	}
+=======
+	 * Muestra una excepción en un dialogo
+	 * 
+	 * @param parent		- Componente padre
+	 * @param exception		- Excepción a mostrar
+	 */
+	public static void showExceptionMessage (java.awt.Window parent, Language language, RAManagerException exception)
+	{
+		new ExceptionDialog (parent, language, exception);
+	}
+	
+	/**
+	 * Verifica la conexion e informa de los diferentes errores
+	 * 
+	 * @param parent		- Componente padre
+	 * @param rAManager		- Gestor de datos de la capa de negocio
+	 * @return	Cierto si se puede establecer la conexion
+	 */
+	public int verifyConnection (java.awt.Window parent, RAManager rAManager, String sqlServer, String sqlUser)
+	{
+		try {
+			rAManager.dataConnect ();
+			return 0;
+		} catch (RAManagerException exception) {
+			
+			switch (exception.getErrorCode())
+			{
+				case RAManagerException.MYSQL_ERROR_CODE_SERVICE_NOT_AVAILABLE:
+					JOptionPane.showMessageDialog (parent, language.get("serviceNotAvailable") + " (" + sqlServer + ")", language.get("errorText"), JOptionPane.ERROR_MESSAGE);
+					break;
+
+				case RAManagerException.MYSQL_ERROR_CODE_LOCKED_ROOT:
+					JOptionPane.showMessageDialog (parent, language.get("sqlBadLogin") + " (" + sqlUser + ")", language.get("errorText"), JOptionPane.ERROR_MESSAGE);
+					break;
+					
+				case RAManagerException.MYSQL_ERROR_CODE_BAD_LOGIN:
+					JOptionPane.showMessageDialog (parent, language.get("sqlBadLogin") + " (" + sqlUser + ")", language.get("errorText"), JOptionPane.ERROR_MESSAGE);
+					break;
+					
+				case RAManagerException.MYSQL_ERROR_CODE_DATABASE_DONT_EXISTS:
+					JOptionPane.showMessageDialog (parent, language.get("databaseDontExists"), language.get("errorText"), JOptionPane.ERROR_MESSAGE);
+					break;
+					
+				default:
+					showExceptionMessage (parent, language, exception);
+					return RAManagerException.UNKNOW_ERROR;
+			}
+			
+			return exception.getErrorCode();
+		}
+		
+	}
+
+>>>>>>> V3.1-alertas
 }

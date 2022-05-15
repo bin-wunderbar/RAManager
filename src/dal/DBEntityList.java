@@ -1,5 +1,6 @@
 package dal;
 
+<<<<<<< HEAD
 import java.io.File;
 
 import java.io.FileInputStream;
@@ -81,6 +82,30 @@ public class DBEntityList <T> extends ArrayList <T>
 	}
 
 	// --------------------------------------------------------------------------------------------
+=======
+import java.util.ArrayList;
+
+// ------------------------------------------------------------------------------------------------
+/**
+ * Lista generica para la gestion de entidades convertidas del modelo relacional a objetos
+ * 
+ * @author G4
+ *
+ * @param <T> - Entidad generica
+ */
+@SuppressWarnings("serial")
+public class DBEntityList <T> extends ArrayList <T> 
+{
+	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Devuelve un objeto de la lista segun su clave primaria
+	 * 
+	 * @param primaryKey - Clave primaria
+	 * @return - Objeto de la lista o null en caso de no localizarlo
+	 * @throws DBManagerException
+	 */
+>>>>>>> V3.1-alertas
 	public T getByPrimaryKey (Object primaryKey) throws DBManagerException
 	{
 		for (T entity : this)
@@ -92,6 +117,7 @@ public class DBEntityList <T> extends ArrayList <T>
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	public <PK> void deleteByPrimaryKey (PK primaryKey) throws DBManagerException
 	{
 		deleteByPrimaryKeyFromList (primaryKey);
@@ -100,12 +126,31 @@ public class DBEntityList <T> extends ArrayList <T>
 		{
 			saveToDisk ();
 		}
+=======
+	/**
+	 * Elimina objetos de la lista segun su clave primaria
+	 * 
+	 * @param <PK> - Clase generica de clave primaria
+	 * @param primaryKey - Objeto generico de clave primaria
+	 * @throws DBManagerException
+	 */
+	public <PK> void deleteByPrimaryKey (PK primaryKey) throws DBManagerException
+	{
+		deleteByPrimaryKeyFromList (primaryKey);
+>>>>>>> V3.1-alertas
 	}
 	
 	// --------------------------------------------------------------------------------------------
 	/**
+<<<<<<< HEAD
 	 * Elimina una entidad por su clave primaria
 	 * @param primaryKey Clave primaria
+=======
+	 * Elimina un objeto de la lista por su clave primaria
+	 * 
+	 * @param <PK> - Clase generica de clave primaria
+	 * @param primaryKey - Objeto generico de clave primaria
+>>>>>>> V3.1-alertas
 	 */
 	private <PK> void deleteByPrimaryKeyFromList (PK primaryKey)
 	{
@@ -124,8 +169,14 @@ public class DBEntityList <T> extends ArrayList <T>
 	// --------------------------------------------------------------------------------------------
 	/**
 	 * Elimina entidades por su clave primaria
+<<<<<<< HEAD
 	 * @param primaryKeys Lista de claves primarias
 	 * @throws IOException 
+=======
+	 * 
+	 * @param primaryKeys - Lista de claves primarias
+	 * @throws DBManagerException 
+>>>>>>> V3.1-alertas
 	 */
 	public <PK> void deleteEntitiesByPrimaryKeys (ArrayList<PK> primaryKeys) throws DBManagerException 
 	{
@@ -133,6 +184,7 @@ public class DBEntityList <T> extends ArrayList <T>
 		{
 			deleteByPrimaryKeyFromList (primaryKey);
 		}
+<<<<<<< HEAD
 		
 		if (!simulation)
 		{
@@ -144,6 +196,20 @@ public class DBEntityList <T> extends ArrayList <T>
 	public DBEntityList <T> getFilter (String filter)
 	{
 		DBEntityList <T> filterList = new DBEntityList <> (databaseDirectory, databaseFileName);
+=======
+	}
+
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Devuelve una lista del mismo tipo con los objetos que cumplan el filtrado
+	 * 
+	 * @param filter - Cadena de texto para el filtrado de los objetos
+	 * @return - Lista con los objetos filtrados
+	 */
+	public DBEntityList <T> getFilter (String filter)
+	{
+		DBEntityList <T> filterList = new DBEntityList <> ();
+>>>>>>> V3.1-alertas
 		
 		for (T entity : this)
 		{
@@ -155,6 +221,7 @@ public class DBEntityList <T> extends ArrayList <T>
 		
 		return filterList;
 	}
+<<<<<<< HEAD
 	
 	// --------------------------------------------------------------------------------------------
 	@SuppressWarnings("unchecked")
@@ -228,5 +295,7 @@ public class DBEntityList <T> extends ArrayList <T>
 			throw new DBManagerException ("DBEntityList::saveToDisk - Error saving data to disk [" + databaseDirectory + File.separatorChar + databaseFileName + "]");
 		}
 	}
+=======
+>>>>>>> V3.1-alertas
 
 }

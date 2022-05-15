@@ -1,3 +1,49 @@
+<<<<<<< HEAD
+=======
+---------------------------------------------------------------------------------------------------
+	RETO 3
+---------------------------------------------------------------------------------------------------
+[]	Revisar permisos en el diálogo de configuración
+[ok]	Reducir el sistema de mensajes de excepciones de SQLException a mensajes más amigables
+[ok]	Agregar datos de conexión a la barra de estado
+[ok] 	Registro de eventos sobre altas o bajas de clientes, empleados y órdenes de trabajo
+[ok]	Adaptar la creación de base de datos desde el cliente
+[ok] 	Actualizar about en página web y archivos de idioma
+[ok] 	Identificar y resolver problemas de conexión
+	[ok] Servicio no disponible
+	[ok] Acceso de usuario no permitido
+		[ok] Solicitar usuario alternativo de acceso a la base de datos y registrarlo en la configuración
+	[ok] Base de datos no existente
+[ok]	El diálogo de configuración debe contemplar el usuario de conexión con la base de datos y su contraseña
+[ok] 	Gestionar el cifrado5201 en la contraseña de conexión con la base de datos
+[]	Fallo al guardar materiales o servicios de restricción de la base de datos, investigar
+[ok]	Habilitar controles para asumir la identidad del empleado para los usuarios con permisos de [gestión y escritura] 
+
+
+---------------------------------------------------------------------------------------------------
+	RECOMENDACIONES Y PROBLEMAS RETO 2
+---------------------------------------------------------------------------------------------------
+
+[descartado]	Deshabilitar botones no necesarios / Se ha realizado un cambio de icono al botón de agregar por nuevo que ayude a clarificar su función
+[ok]	Los errores no especifican el campo que produce el error
+[ok]	Botón de cerrar en los diálogos
+[ok]	Agregar vehículos desde el diálogo de cliente
+[]	Falla la actualización de vehículos
+[ok]	Formato a dos decimales en la vista previa de impresión
+[ok]	Los formularios muestran identificadores poco claros, cambiar por el texto representativo
+
+
+
+---------------------------------------------------------------------------------------------------
+	MIGRACIÓN DE LA CAPA DE DATOS
+---------------------------------------------------------------------------------------------------
+[ok] Eliminar AUTOID de la capa de datos
+
+---------------------------------------------------------------------------------------------------
+	VARIOS
+---------------------------------------------------------------------------------------------------
+
+>>>>>>> V3.1-alertas
 [ok] 	Agregar total sin iva a la factura
 [ok] 	Return buildBOperation (operation)
 [ok]	Imprimir factura
@@ -9,7 +55,11 @@
 [ok] Actualizar el panel de entidades al aceptar la configuración
 [ok] Bloquear controles de configuración según rol
 [ok] Avisar si hay datos de configuración modificados antes de salir
+<<<<<<< HEAD
 [] Asegurar márgenes de impresión en configuraciones sin márgen
+=======
+[ok] Asegurar márgenes de impresión en configuraciones sin márgen
+>>>>>>> V3.1-alertas
 [ok] Entradas de DNI y matrícula deben de ser únicas
 [] Anular las selecciones del cliente eliminado del formulario principal
 [] Limpiar formulario al eliminar al cliente seleccionado
@@ -22,9 +72,15 @@
 [ok] Agregar permiso de administración
 [ok] Implementar todas las entidades
 [ok] Implementar todos los formularios de gestión de entidad
+<<<<<<< HEAD
 [ok] Roles
 [ok] Proveedores
 [ok] Materiales
+=======
+	[ok] Roles
+	[ok] Proveedores
+	[ok] Materiales
+>>>>>>> V3.1-alertas
 	
 [ok] El formulario de vehículos debe mostrarse filtrado y completado en solo lectura el id del cliente
 
@@ -33,8 +89,13 @@
 [ok] Implementar guardado y recuperación en disco de la configuración de RAConfig
 
 [ok] Lista de entidades genéricas opera por clave primaria
+<<<<<<< HEAD
 [ok] encuentra objetos
 [ok] elimina objetos
+=======
+	[ok] encuentra objetos
+	[ok] elimina objetos
+>>>>>>> V3.1-alertas
 
 
 [ok] numberToString en Util

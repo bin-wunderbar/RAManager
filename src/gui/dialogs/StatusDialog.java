@@ -12,12 +12,26 @@ import javax.swing.border.EmptyBorder;
 import bll.BStatus;
 import bll.RAManager;
 import gui.Language;
+<<<<<<< HEAD
+=======
+import gui.ValueChecks;
+>>>>>>> V3.1-alertas
 import gui.controls.RAComboBox;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 // ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+/**
+ * Dialogo de seleccion de estados
+ * 
+ * @author G4
+ *
+ */
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class StatusDialog extends JDialog 
 {
 
@@ -29,7 +43,16 @@ public class StatusDialog extends JDialog
 
 	// --------------------------------------------------------------------------------------------
 	/**
+<<<<<<< HEAD
 	 * Create the dialog.
+=======
+	 * Inicializa el dialogo
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @param inputIdStatus	- identificador del estado a seleccionar
+>>>>>>> V3.1-alertas
 	 */
 	public StatusDialog (JDialog owner, RAManager rAManager, Language language, int inputIdStatus) 
 	{
@@ -39,15 +62,40 @@ public class StatusDialog extends JDialog
 	}
 
 	// SOBRECARGA POR REQUISITO DE RÚBRICA, MODAL CONFIGURABLE 
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el dialogo
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @param inputIdStatus	- identificador del estado a seleccionar
+	 * @param modal			- Define si el dialogo es modal
+	 */
+>>>>>>> V3.1-alertas
 	public StatusDialog (JDialog owner, RAManager rAManager, Language language, int inputIdStatus, boolean modal) 
 	{
 		super (owner, modal);
 	
 		initDialog (owner, rAManager, language, inputIdStatus);
 	}
+<<<<<<< HEAD
 
 	
 	// --------------------------------------------------------------------------------------------
+=======
+	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Inicializa el dialogo
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @param inputIdStatus	- identificador del estado a seleccionar
+	 */
+>>>>>>> V3.1-alertas
 	private final void initDialog (JDialog owner, RAManager rAManager, Language language, int inputIdStatus) 
 	{
 		Rectangle bounds = owner.getBounds ();
@@ -103,13 +151,25 @@ public class StatusDialog extends JDialog
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 
 		setVisible (true);
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Selecciona un objeto de estado segun su identificador
+	 * 
+	 * @param inputIdStatus - Identificador del estado
+	 */
+>>>>>>> V3.1-alertas
 	private void setSelectedById (int inputIdStatus)
 	{
 		if (inputIdStatus > 0)
@@ -126,6 +186,12 @@ public class StatusDialog extends JDialog
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Selecciona el estado
+	 */
+>>>>>>> V3.1-alertas
 	protected void selectStatus() 
 	{
 		BStatus status = (BStatus)rAComboBoxStatus.getSelectedItem();
@@ -139,6 +205,12 @@ public class StatusDialog extends JDialog
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Cierra el dialogo
+	 */
+>>>>>>> V3.1-alertas
 	protected void cancel() 
 	{
 		dispose ();

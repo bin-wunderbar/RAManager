@@ -5,6 +5,10 @@ import java.awt.BorderLayout;
 
 import java.awt.FlowLayout;
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+>>>>>>> V3.1-alertas
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -17,6 +21,10 @@ import javax.swing.border.EmptyBorder;
 import bll.RAManager;
 import bll.Util;
 import gui.Language;
+<<<<<<< HEAD
+=======
+import gui.ValueChecks;
+>>>>>>> V3.1-alertas
 import gui.dialogs.AboutDialog;
 import gui.dialogs.ClientDialog;
 import gui.dialogs.ConfigurationDialog;
@@ -32,6 +40,12 @@ import gui.dialogs.operationdialog.OperationDialog;
 import gui.dialogs.printdialog.PrintDialog;
 import gui.forms.PanelEntities;
 import gui.forms.orderbyloginform.OrderByLoginForm;
+<<<<<<< HEAD
+=======
+import sgbdoo.Alert;
+import sgbdoo.AlertsDialog;
+import sgbdoo.AlertsManager;
+>>>>>>> V3.1-alertas
 import bll.BClient;
 import bll.BEmployee;
 import bll.BOperation;
@@ -48,6 +62,10 @@ import java.awt.event.WindowEvent;
  * @author G1
  *
  */
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class MainFrame extends JFrame {
 
 	private Language language;
@@ -67,6 +85,10 @@ public class MainFrame extends JFrame {
 	private BEmployee login;
 	
 	private RAConfig config;
+<<<<<<< HEAD
+=======
+	private AlertsManager alertsManager;
+>>>>>>> V3.1-alertas
 	
 	
 	// --------------------------------------------------------------------------------------------
@@ -84,6 +106,11 @@ public class MainFrame extends JFrame {
 		this.language	= language;
 		this.config		= config; 
 		login 			= rAManager.getActiveLogin();
+<<<<<<< HEAD
+=======
+		
+		alertsManager 	= new AlertsManager (config);
+>>>>>>> V3.1-alertas
 
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 1088, 784);
@@ -98,6 +125,13 @@ public class MainFrame extends JFrame {
 			{
 				mainFrame.windowClosing ();
 			}
+<<<<<<< HEAD
+=======
+			
+			public void windowOpened(WindowEvent e) {
+				mainFrame.expiredAlertsCheck ();
+			}
+>>>>>>> V3.1-alertas
 		});
 		
 		initComponents ();
@@ -137,7 +171,11 @@ public class MainFrame extends JFrame {
 		jToolBarStatus.setLayout(new FlowLayout (FlowLayout.RIGHT));
 		panelSouth.add (jToolBarStatus, BorderLayout.SOUTH);
 		
+<<<<<<< HEAD
 		lblStatus			= new JLabel (RAConfig.getStatus (login));
+=======
+		lblStatus			= new JLabel (RAConfig.getStatus (login, rAManager.getInfoDB()));
+>>>>>>> V3.1-alertas
 		jToolBarStatus.add(lblStatus);
 
 		try {
@@ -152,8 +190,31 @@ public class MainFrame extends JFrame {
 	// --------------------------------------------------------------------------------------------
 	// DIALOGOS
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	
 	// --------------------------------------------------------------------------------------------
+=======
+	/**
+	 * Muestra el dialogo de alertas de usuario 
+	 */
+	public void showAlertsDialog() {
+		
+		try 
+		{
+			new AlertsDialog (this, rAManager, alertsManager, alertsManager.getAlerts (""), false, language);
+		} 
+		catch (bll.RAManagerException e) 
+		{
+			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+			gui.ValueChecks.showExceptionMessage(this, language, e);
+		}
+	}
+
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Muestra el dialogo de configuracion 
+	 */
+>>>>>>> V3.1-alertas
 	public void showConfigurationDialog() 
 	{
 		new ConfigurationDialog (mainFrame, mainFrame.getRAManager(), mainFrame.getConfig (), language);
@@ -162,6 +223,12 @@ public class MainFrame extends JFrame {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el dialogo de roles
+	 */
+>>>>>>> V3.1-alertas
 	public void showRoleDialog ()
 	{
 		if (login.isPermissionManagement() && login.getIdRole() == BRole.MANAGEMENT)
@@ -174,7 +241,14 @@ public class MainFrame extends JFrame {
 		}
 	}
 
+<<<<<<< HEAD
 	// --------------------------------------------------------------------------------------------	
+=======
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Muestra el dialogo de roles
+	 */
+>>>>>>> V3.1-alertas
 	public void showProviderDialog() 
 	{
 		try 
@@ -184,12 +258,22 @@ public class MainFrame extends JFrame {
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			gui.ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el dialogo de materiales
+	 */
+>>>>>>> V3.1-alertas
 	public void showMaterialDialog() 
 	{
 		try 
@@ -199,12 +283,22 @@ public class MainFrame extends JFrame {
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			gui.ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el dialogo de servicios 
+	 */
+>>>>>>> V3.1-alertas
 	public void showServiceDialog() 
 	{
 		try 
@@ -214,7 +308,11 @@ public class MainFrame extends JFrame {
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			gui.ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 	}
 	
@@ -234,7 +332,11 @@ public class MainFrame extends JFrame {
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			gui.ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 	}
 
@@ -252,11 +354,21 @@ public class MainFrame extends JFrame {
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			gui.ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el dialogo de empleados 
+	 */
+>>>>>>> V3.1-alertas
 	public void showEmployeeDialog() 
 	{
 		try 
@@ -266,7 +378,11 @@ public class MainFrame extends JFrame {
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			gui.ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 	}
 
@@ -298,7 +414,11 @@ public class MainFrame extends JFrame {
 			catch (bll.RAManagerException e) 
 			{
 				rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 				gui.ValueChecks.showExceptionMessage(this, e);
+=======
+				gui.ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 			}
 		}
 		else
@@ -348,12 +468,24 @@ public class MainFrame extends JFrame {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el dialogo de ordenes por empleado 
+	 */
+>>>>>>> V3.1-alertas
 	public void showOrderEmployeeDialog() 
 	{
 		new OrderByLoginForm (this, rAManager, login, config, language);
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el dialogo de todas las ordenes 
+	 */
+>>>>>>> V3.1-alertas
 	public void showOrderAllDialog() 
 	{
 		try 
@@ -363,7 +495,11 @@ public class MainFrame extends JFrame {
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			gui.ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 	}
 	
@@ -420,6 +556,12 @@ public class MainFrame extends JFrame {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el dialogo de cambio de password 
+	 */
+>>>>>>> V3.1-alertas
 	public void showPasswordChangeDialog() 
 	{
 		new PasswordChangeDialog (this, rAManager, language, login);
@@ -435,6 +577,12 @@ public class MainFrame extends JFrame {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Gestiona el cerrado de ventana
+	 */
+>>>>>>> V3.1-alertas
 	protected void windowClosing ()
 	{
 		rAManager.close ();
@@ -442,6 +590,33 @@ public class MainFrame extends JFrame {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Verifica si hay alertas de usuario que hayan vencido y notifica al usuario
+	 */
+	protected void expiredAlertsCheck ()
+	{
+		try 
+		{
+			ArrayList <Alert> expiredAlerts = alertsManager.getExpiredAlerts("");
+			if (expiredAlerts.size() > 0)
+			{
+				if (JOptionPane.showConfirmDialog(this, language.get ("expiredAlerts"), language.get ("warningText"), JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION)
+				{
+					new AlertsDialog (this, rAManager, alertsManager, expiredAlerts, true, language);
+				}
+			}
+		} 
+		catch (bll.RAManagerException e) 
+		{
+			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+			gui.ValueChecks.showExceptionMessage(this, language, e);
+		}
+	}
+	
+	// --------------------------------------------------------------------------------------------
+>>>>>>> V3.1-alertas
 	// COMPLEMENTOS
 	// --------------------------------------------------------------------------------------------
 
@@ -480,7 +655,11 @@ public class MainFrame extends JFrame {
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			gui.ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 	}
 
@@ -539,7 +718,11 @@ public class MainFrame extends JFrame {
 				catch (bll.RAManagerException e) 
 				{
 					rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 					gui.ValueChecks.showExceptionMessage(this, e);
+=======
+					gui.ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 				}
 			}
 		}
@@ -565,7 +748,11 @@ public class MainFrame extends JFrame {
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			gui.ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 		
 		// mismo cliente que el anteriormente seleccionado
@@ -606,7 +793,11 @@ public class MainFrame extends JFrame {
 			catch (bll.RAManagerException e) 
 			{
 				rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 				gui.ValueChecks.showExceptionMessage(this, e);
+=======
+				ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 			}
 		}
 		
@@ -614,7 +805,11 @@ public class MainFrame extends JFrame {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	// IDIOMAS
+=======
+	// IDIOMA
+>>>>>>> V3.1-alertas
 	// --------------------------------------------------------------------------------------------
 
 	// --------------------------------------------------------------------------------------------
@@ -623,7 +818,11 @@ public class MainFrame extends JFrame {
 	 */
 	public void applyLanguage ()
 	{
+<<<<<<< HEAD
 		lblStatus.setText(RAConfig.getStatus (login));
+=======
+		lblStatus.setText(RAConfig.getStatus (login, rAManager.getInfoDB()));
+>>>>>>> V3.1-alertas
 		
 		mainFrameMenuBar.applyLanguage ();
 		panelEntities.applyLanguage ();
@@ -657,7 +856,15 @@ public class MainFrame extends JFrame {
 		return rAManager;
 	}
 
+<<<<<<< HEAD
 	
+=======
+	/**
+	 * ajusta la orden actual
+	 * 
+	 * @param order - Orden actual
+	 */
+>>>>>>> V3.1-alertas
 	public void setCurrentOrder (BOrder order)
 	{
 		currentOrder = order;
@@ -693,4 +900,9 @@ public class MainFrame extends JFrame {
 		return currentClient;
 	}
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> V3.1-alertas
 }

@@ -39,7 +39,10 @@ public class BClient extends Client implements IRAObject
 	 * 
 	 * @param client		- Cliente del taller
 	 */
+<<<<<<< HEAD
 	
+=======
+>>>>>>> V3.1-alertas
 	public BClient (Client client)
 	{
 		super (client.getId (), client.getNIF (), client.getName (), client.getSurnames (), client.getProvince(), client.getDirection(), client.getEmail(), client.getPhone());
@@ -53,6 +56,7 @@ public class BClient extends Client implements IRAObject
 	 * -2% para 5 o más servicios solicitados en los últimos 30 días
 	 * -5% para 10 o más servicios solicitados en los últimos 30 días
 	 * 
+<<<<<<< HEAD
 	 * @param monthOrders - Órdenes de trabajo solicitadas en los últimos 30 días
 	 * @totalCost - Coste total de facturación de los últimos 30 días
 	 * @return Descuento aplicable
@@ -73,6 +77,40 @@ public class BClient extends Client implements IRAObject
 		else if (monthOrders >= 10)
 		{
 			discount += 5;
+=======
+	 * @param monthOrdersString - Ordenes de trabajo solicitadas en los últimos 30 días
+	 * @param totalCostString - Coste total de facturación de los últimos 30 días
+	 * @return Descuento aplicable
+	 */
+	public static double getDiscount (String monthOrdersString, String totalCostString)
+	{
+		double discount 	= 0.0;
+		double totalCost 	= 0.0;
+		double monthOrders 	= 0.0;
+		
+		try
+		{
+			totalCost 		= Double.parseDouble(totalCostString);
+			monthOrders 	= Double.parseDouble(monthOrdersString);
+
+			if (totalCost >= 1000)
+			{
+				discount += 5;
+			}
+			
+			if (monthOrders >= 5 && monthOrders < 10)
+			{
+				discount += 2;
+			}
+			else if (monthOrders >= 10)
+			{
+				discount += 5;
+			}
+		}
+		catch (NumberFormatException exception)
+		{
+			System.err.println ("bll.BClient::getDiscount () - Value conversion error");
+>>>>>>> V3.1-alertas
 		}
 		
 		return discount;
@@ -104,7 +142,10 @@ public class BClient extends Client implements IRAObject
 	 * 
 	 * @return	Devuelve la órden de trabajo si existe <strong>null</strong> en caso contrario
 	 */
+<<<<<<< HEAD
 	
+=======
+>>>>>>> V3.1-alertas
 	public BOrder getFirstBOrder () 
 	{
 		if (orders.size () > 0)
@@ -160,9 +201,17 @@ public class BClient extends Client implements IRAObject
 	// --------------------------------------------------------------------------------------------
 	// GETTERS & SETTERS
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	
 	/**
 	 * @return the vehicles
+=======
+
+	/**
+	 * Devuelve los vehiculos segun el filtro
+	 * @param filter - Texto de filtrado
+	 * @return ArrayList con los vehiculos filtrados
+>>>>>>> V3.1-alertas
 	 */
 	public ArrayList <BVehicle> getVehicles (String filter) {
 		ArrayList <BVehicle> filteredVehicles = new ArrayList <> ();
@@ -179,14 +228,27 @@ public class BClient extends Client implements IRAObject
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param vehicles the vehicles to set
+=======
+	 * Ajusta los vehiculos del cliente
+	 * 
+	 * @param vehicles - ArrayList con los vehiculos a ajustar
+>>>>>>> V3.1-alertas
 	 */
 	public void setVehicles(ArrayList <BVehicle> vehicles) {
 		this.vehicles = vehicles;
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @return the orders
+=======
+	 * Devuelve las ordenes asociadas al cliente filtradas
+	 *  
+	 * @param filter - Filtro de texto que deben cumplir las ordenes
+	 * @return - ArrayList con las ordenes
+>>>>>>> V3.1-alertas
 	 */
 	public ArrayList <BOrder> getOrders (String filter) {
 		
@@ -204,7 +266,13 @@ public class BClient extends Client implements IRAObject
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param orders the orders to set
+=======
+	 * Ajusta las ordenes asociadas al cliente
+	 * 
+	 * @param orders - ArrayList con las ordenes a asociar 
+>>>>>>> V3.1-alertas
 	 */
 	public void setOrders(ArrayList <BOrder> orders) {
 		this.orders = orders;

@@ -18,10 +18,18 @@ import bll.BOrder;
 import bll.BStatus;
 import bll.RAConfig;
 import bll.RAManager;
+<<<<<<< HEAD
 import bll.Util;
 import gui.Language;
 import gui.ValueChecks;
 import gui.controls.ButtonAdd;
+=======
+import bll.RAManagerException;
+import bll.Util;
+import gui.Language;
+import gui.ValueChecks;
+import gui.controls.ButtonNew;
+>>>>>>> V3.1-alertas
 import gui.controls.ButtonDelete;
 import gui.controls.ButtonEdit;
 import gui.controls.ButtonPrint;
@@ -61,6 +69,16 @@ import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
 
+<<<<<<< HEAD
+=======
+/**
+ * Formulario de ordenes de trabajo por empleado que inicia la sesion
+ * 
+ * @author G4
+ *
+ */
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class OrderByLoginForm extends JFrame {
 	private Language language;
 	private RAManager rAManager;
@@ -68,6 +86,10 @@ public class OrderByLoginForm extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel panelHeader;
+<<<<<<< HEAD
+=======
+	private JPanel panelLogo;
+>>>>>>> V3.1-alertas
 	private JPanel panelControls;
 	private JPanel panelOrders;
 	private JSplitPane splitPaneOrder;
@@ -84,7 +106,11 @@ public class OrderByLoginForm extends JFrame {
 	private JCheckBox checkBoxDescription;
 	private JCheckBox checkBoxNIF;
 
+<<<<<<< HEAD
 	private ButtonAdd buttonOperationAdd;
+=======
+	private ButtonNew buttonOperationAdd;
+>>>>>>> V3.1-alertas
 	private ButtonDelete buttonOperationDelete;
 	private ButtonEdit buttonOperationEdit;
 
@@ -106,8 +132,22 @@ public class OrderByLoginForm extends JFrame {
 	private JMenuItem menuItemPasswordChange;
 	private JLabel labelFilter;
 
+<<<<<<< HEAD
 	/**
 	 * Create the frame.
+=======
+	private RAComboBox <BEmployee> rAComboBoxEmployee;
+	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Inicializa el dialogo
+	 * 
+	 * @param owner				- Ventana propietaria
+	 * @param rAManager			- Gestor de datos
+	 * @param login				- Empleado que inicia sesion
+	 * @param config			- Objeto de datos de configuracion
+	 * @param language			- Objeto de idioma
+>>>>>>> V3.1-alertas
 	 */
 	public OrderByLoginForm (JFrame owner, RAManager rAManager, BEmployee login, RAConfig config, Language language) 
 	{
@@ -199,6 +239,12 @@ public class OrderByLoginForm extends JFrame {
 		panelHeader = new JPanel ();
 		panelHeader.setLayout (new BorderLayout ());
 		
+<<<<<<< HEAD
+=======
+		panelLogo = new JPanel ();
+		panelLogo.setLayout (new BorderLayout ());
+		
+>>>>>>> V3.1-alertas
 		JToolBar toolBarStatus = new JToolBar();
 		toolBarStatus.setLayout(new FlowLayout (FlowLayout.RIGHT));
 		contentPane.add(toolBarStatus, BorderLayout.SOUTH);
@@ -217,8 +263,14 @@ public class OrderByLoginForm extends JFrame {
 		panelControls = new JPanel ();
 		panelControls.setLayout (new BorderLayout ());
 		
+<<<<<<< HEAD
 		panelHeader.add (createLogo (), BorderLayout.NORTH);
 		panelHeader.add (panelControls, BorderLayout.CENTER);
+=======
+		panelLogo.add (createLogo (), BorderLayout.CENTER);
+		panelHeader.add (panelLogo, BorderLayout.NORTH);
+		panelHeader.add (panelControls, BorderLayout.SOUTH);
+>>>>>>> V3.1-alertas
 		contentPane.add (panelHeader, BorderLayout.NORTH);
 		
 		toolBarFilter = new JToolBar ();
@@ -274,12 +326,24 @@ public class OrderByLoginForm extends JFrame {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el dialogo de cambio de password
+	 */
+>>>>>>> V3.1-alertas
 	protected void showPasswordChangeDialog() 
 	{
 		new PasswordChangeDialog (this, rAManager, language, login);
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el dialogo de configuracion
+	 */
+>>>>>>> V3.1-alertas
 	public void showConfigurationDialog() 
 	{
 		new ConfigurationDialog (orderByLoginForm, rAManager, config, language);
@@ -288,6 +352,12 @@ public class OrderByLoginForm extends JFrame {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Gestiona el cerrado de ventana
+	 */
+>>>>>>> V3.1-alertas
 	protected void windowClosing() 
 	{
 		// Si es ventana principal, cerrar RAManager, (puede ser hija del MainFrame en cuyo caso cerrará el MainFrame)
@@ -300,6 +370,13 @@ public class OrderByLoginForm extends JFrame {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa los controles del formulario
+	 * 
+	 */
+>>>>>>> V3.1-alertas
 	private void initComponents ()
 	{
 		panelOperations = new JPanel ();
@@ -352,7 +429,16 @@ public class OrderByLoginForm extends JFrame {
 		splitPaneOrder.setRightComponent (panelOperations);
 		splitPaneOrder.setDividerLocation(getWidth () / 2);
 		
+<<<<<<< HEAD
 		labelStatus.setText (RAConfig.getStatus(login));
+=======
+		labelStatus.setText (RAConfig.getStatus(login, rAManager.getInfoDB()));
+		
+		if (login.isPermissionManagement() && login.isPermissionWrite() && login.isPermissionRemove())
+		{
+			initAssumeIdentity ();
+		}
+>>>>>>> V3.1-alertas
 		
 		toolBarFilter.addSeparator();
 		toolBarFilter.add (rAComboBoxStatuses = new RAComboBox <> ());
@@ -368,6 +454,48 @@ public class OrderByLoginForm extends JFrame {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	protected void initAssumeIdentity ()
+	{
+		JPanel panelAssumeIdentity = new JPanel ();
+		panelAssumeIdentity.setLayout (new BorderLayout ());
+		rAComboBoxEmployee = new RAComboBox <> ();
+		
+		try {
+			rAComboBoxEmployee.loadItems(rAManager.getAllBEmployees(""));
+
+			rAComboBoxEmployee.selectById(login.getId());
+			
+			panelAssumeIdentity.add (new JLabel (language.get("assumeIdentity") + " "), BorderLayout.WEST);
+			panelAssumeIdentity.add (rAComboBoxEmployee, BorderLayout.CENTER);
+			panelHeader.add (panelAssumeIdentity, BorderLayout.CENTER);
+
+			rAComboBoxEmployee.addActionListener(new ActionListener () {
+				public void actionPerformed (ActionEvent actionEvent)
+				{
+					selectEmployee ();
+				}
+			});
+
+		} catch (RAManagerException exception) {
+			ValueChecks.showExceptionMessage (orderByLoginForm, language, exception);
+		}
+		
+	}
+
+	// --------------------------------------------------------------------------------------------
+	protected void selectEmployee ()
+	{
+		login = (BEmployee) rAComboBoxEmployee.getSelectedItem();
+		applyOrderFilter ();
+	}
+	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Inicaliza la barra de herramientas de las ordenes
+	 */
+>>>>>>> V3.1-alertas
 	private void initOperationsOrderBar() 
 	{
 		JToolBar toolBarOrders = new JToolBar ();
@@ -393,11 +521,21 @@ public class OrderByLoginForm extends JFrame {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa la barra de herramientas de las operaciones
+	 */
+>>>>>>> V3.1-alertas
 	private void initOperationsToolBar ()
 	{
 		JToolBar toolBarOperations = new JToolBar ();
 	
+<<<<<<< HEAD
 		toolBarOperations.add (buttonOperationAdd 		= new ButtonAdd (language));
+=======
+		toolBarOperations.add (buttonOperationAdd 		= new ButtonNew (language));
+>>>>>>> V3.1-alertas
 		toolBarOperations.add (buttonOperationDelete 	= new ButtonDelete (language));
 		toolBarOperations.add (buttonOperationEdit 		= new ButtonEdit (language));
 		
@@ -457,6 +595,12 @@ public class OrderByLoginForm extends JFrame {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Carga inicial de datos a los controles
+	 */
+>>>>>>> V3.1-alertas
 	private void initLoad ()
 	{
 		BStatus allStatuses;
@@ -472,17 +616,32 @@ public class OrderByLoginForm extends JFrame {
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 
 		applyOrderFilter ();
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Aplicar el filtrado al listado de ordenes
+	 */
+>>>>>>> V3.1-alertas
 	protected void applyOrderFilter() 
 	{
 		BStatus status = (BStatus) rAComboBoxStatuses.getSelectedItem();
 		
+<<<<<<< HEAD
+=======
+		operationsTable.clear ();
+		
+>>>>>>> V3.1-alertas
 		try 
 		{
 			ordersTable.load(rAManager.getBOrdersByEmployee (login, status.getId(), textFieldFilter.getText(), checkBoxDescription.isSelected(), checkBoxNIF.isSelected()));
@@ -502,11 +661,23 @@ public class OrderByLoginForm extends JFrame {
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Selecionar una orden
+	 * 
+	 * @param order - Orden
+	 */
+>>>>>>> V3.1-alertas
 	protected void selectOrder (BOrder order)
 	{
 		panelEntities.updateSelectedClient (order.getBClient());
@@ -516,6 +687,14 @@ public class OrderByLoginForm extends JFrame {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el dialogo de modificacion de operacio
+	 * 
+	 * @param selectedOperation - Indice de la operacion seleccionada
+	 */
+>>>>>>> V3.1-alertas
 	protected void showModifyOperationDialog (int selectedOperation)
 	{
 		if (login.isPermissionWrite())
@@ -548,6 +727,12 @@ public class OrderByLoginForm extends JFrame {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el dialogo de operacion nueva
+	 */
+>>>>>>> V3.1-alertas
 	protected void showNewOperationDialog ()
 	{
 		
@@ -577,6 +762,12 @@ public class OrderByLoginForm extends JFrame {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Recarga los componentes de tabla
+	 */
+>>>>>>> V3.1-alertas
 	protected void reloadTables ()
 	{
 		int selectedOrder 		= ordersTable.getSelectedRow();
@@ -601,6 +792,12 @@ public class OrderByLoginForm extends JFrame {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Elimnina las operaciones
+	 */
+>>>>>>> V3.1-alertas
 	protected void deleteOperations ()
 	{
 		if (login.isPermissionRemove())
@@ -623,7 +820,11 @@ public class OrderByLoginForm extends JFrame {
 							applyOrderFilter ();
 							ordersTable.selectById(order.getId());
 						} catch (bll.RAManagerException e) {
+<<<<<<< HEAD
 							ValueChecks.showExceptionMessage(this, e);
+=======
+							ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 						}
 					}
 				}
@@ -641,6 +842,12 @@ public class OrderByLoginForm extends JFrame {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el dialogo de edicion de la orden
+	 */
+>>>>>>> V3.1-alertas
 	protected void showEditOrderDialog() 
 	{
 		if (login.isPermissionWrite())
@@ -673,12 +880,24 @@ public class OrderByLoginForm extends JFrame {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el mensaje de error de que la orden no puede ser cambiada
+	 */
+>>>>>>> V3.1-alertas
 	public void showOrderStatusDontChanged ()
 	{
 		JOptionPane.showMessageDialog(this, language.get("orderStatusDontChanged"), language.get ("errorText"), JOptionPane.ERROR_MESSAGE);		
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el dialogo de impresion
+	 */
+>>>>>>> V3.1-alertas
 	protected void showPrintDialog() 
 	{
 		if (login.isPermissionRead ())
@@ -701,6 +920,12 @@ public class OrderByLoginForm extends JFrame {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Muestra el mensaje de permiso denegado
+	 */
+>>>>>>> V3.1-alertas
 	public void showPermissionDeniedDialog ()
 	{
 		JOptionPane.showMessageDialog (this, language.get ("permissionDenied"), language.get ("errorText"), JOptionPane.ERROR_MESSAGE);
@@ -716,6 +941,12 @@ public class OrderByLoginForm extends JFrame {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Aplica el idioma
+	 */
+>>>>>>> V3.1-alertas
 	public void applyLanguage() 
 	{
 		labelFilter.setText(language.get("filter"));

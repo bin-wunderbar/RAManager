@@ -32,6 +32,16 @@ import java.awt.GridLayout;
 import javax.swing.JCheckBox;
 
 // ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+/**
+ * Dialogo simple para la edicion de la orden de dialogo
+ *  
+ * @author G4
+ *
+ */
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class EditOrderByLoginDialog extends JDialog 
 {
 
@@ -48,7 +58,16 @@ public class EditOrderByLoginDialog extends JDialog
 
 	// ------------------------------------------------------------------------------------------------
 	/**
+<<<<<<< HEAD
 	 * Create the dialog.
+=======
+	 * Inicializa el dialogo
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @param order			- Orden de trabajo a editar
+>>>>>>> V3.1-alertas
 	 */
 	public EditOrderByLoginDialog (JFrame owner, RAManager rAManager, Language language, BOrder order) 
 	{
@@ -109,6 +128,12 @@ public class EditOrderByLoginDialog extends JDialog
 	}
 
 	// ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa los componentes
+	 */
+>>>>>>> V3.1-alertas
 	protected void initComponents ()
 	{
 		contentPanel.setLayout(new GridLayout(0, 2, 0, 0));
@@ -140,6 +165,12 @@ public class EditOrderByLoginDialog extends JDialog
 	}
 	
 	// ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicaliza el componente de seleccion de fecha y hora
+	 */
+>>>>>>> V3.1-alertas
 	private void initDateTimePicker ()
 	{
 		dateTimePicker = new DateTimePicker ();
@@ -150,6 +181,12 @@ public class EditOrderByLoginDialog extends JDialog
 	}
 
 	// ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Carga los datos de los controles
+	 */
+>>>>>>> V3.1-alertas
 	protected void load ()
 	{
 		
@@ -160,7 +197,11 @@ public class EditOrderByLoginDialog extends JDialog
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println (bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 		
 		checkBoxAccept.setSelected (order.isAccept());
@@ -174,12 +215,26 @@ public class EditOrderByLoginDialog extends JDialog
 	}
 	
 	// ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Ajusta el estado de la orden
+	 * 
+	 * @param idStatus - Identificador del estado
+	 */
+>>>>>>> V3.1-alertas
 	protected void setStatus (int idStatus)
 	{
 		rAComboBoxStatus.selectById (idStatus);
 	}
 	
 	// ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Guarda la orden de trabajo
+	 */
+>>>>>>> V3.1-alertas
 	protected void saveOrder() 
 	{
 		saveChanges ();
@@ -187,6 +242,12 @@ public class EditOrderByLoginDialog extends JDialog
 	}
 
 	// ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Guarda los cambios
+	 */
+>>>>>>> V3.1-alertas
 	protected void saveChanges ()
 	{
 		BStatus status = (BStatus)rAComboBoxStatus.getSelectedItem();
@@ -210,11 +271,21 @@ public class EditOrderByLoginDialog extends JDialog
 			rAManager.save (order);
 			savedChanges = true;
 		} catch (bll.RAManagerException e) {
+<<<<<<< HEAD
 			ValueChecks.showExceptionMessage (this, e);
+=======
+			ValueChecks.showExceptionMessage (this, language, e);
+>>>>>>> V3.1-alertas
 		}
 	}
 	
 	// ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Verifica si hay cambios por guardar al cerrar
+	 */
+>>>>>>> V3.1-alertas
 	protected void verifyWindowClosing() 
 	{
 		if (changes)
@@ -240,6 +311,14 @@ public class EditOrderByLoginDialog extends JDialog
 	}
 
 	// ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Devuelve cierto si hay cambios
+	 * 
+	 * @return - Cierto si hay cambios
+	 */
+>>>>>>> V3.1-alertas
 	public boolean isSavedChanges ()
 	{
 		return savedChanges;

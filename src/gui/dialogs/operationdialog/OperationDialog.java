@@ -19,9 +19,16 @@ import bll.BOperation;
 import bll.BOrder;
 import bll.BService;
 import bll.RAManager;
+<<<<<<< HEAD
 import gui.Language;
 import gui.ValueChecks;
 import gui.controls.ButtonAdd;
+=======
+import bll.RAManagerException;
+import gui.Language;
+import gui.ValueChecks;
+import gui.controls.ButtonNew;
+>>>>>>> V3.1-alertas
 import gui.controls.ButtonDelete;
 import gui.controls.RAComboBox;
 
@@ -36,6 +43,10 @@ import java.awt.GridLayout;
 import javax.swing.SwingConstants;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+>>>>>>> V3.1-alertas
 
 // ------------------------------------------------------------------------------------------------
 /***
@@ -44,6 +55,10 @@ import java.awt.event.WindowEvent;
  * @author G1
  *
  */
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class OperationDialog extends JDialog {
 	
 	private final JPanel contentPanel = new JPanel();
@@ -74,6 +89,7 @@ public class OperationDialog extends JDialog {
 	private BEmployee login;
 	
 	// ---------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	/***
 	 * Inicializa el diálogo de operaciones
 	 * 
@@ -82,6 +98,17 @@ public class OperationDialog extends JDialog {
 	 * @param operation		Operación de orden de trabajo. <br>
 	 * Un valor <strong>null</strong> se procesará como la creación de una operación nueva.<br>
 	 * Un valor diferente de <strong>null</strong> se procesará como la edición de una operación existente. 
+=======
+	/**
+	 * Inicializa el dialogo de operaciones
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @param login			- Empleado que inicia la sesion
+	 * @param order			- Orden de trabajo (nula para nuevo)
+	 * @param operation		- Operacion a seleccionar
+>>>>>>> V3.1-alertas
 	 */
 	public OperationDialog (JFrame owner, RAManager rAManager, Language language, BEmployee login, BOrder order, BOperation operation) 
 	{
@@ -91,6 +118,20 @@ public class OperationDialog extends JDialog {
 	}
 
 	// SOBRECARGA POR REQUISITO DE RÚBRICA, MODAL CONFIGURABLE
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el dialogo de operaciones
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @param login			- Empleado que inicia la sesion
+	 * @param order			- Orden de trabajo (nula para nuevo)
+	 * @param operation		- Operacion a seleccionar
+	 * @param modal			- Define si el dialogo es modal
+	 */
+>>>>>>> V3.1-alertas
 	public OperationDialog (JFrame owner, RAManager rAManager, Language language, BEmployee login, BOrder order, BOperation operation, boolean modal) 
 	{
 		super (owner, modal);
@@ -99,6 +140,19 @@ public class OperationDialog extends JDialog {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el dialogo de operaciones
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @param login			- Empleado que inicia la sesion
+	 * @param order			- Orden de trabajo (nula para nuevo)
+	 * @param operation		- Operacion a seleccionar
+	 */
+>>>>>>> V3.1-alertas
 	private final void initDialog (JFrame owner, RAManager rAManager, Language language, BEmployee login, BOrder order, BOperation operation)
 	{
 		this.rAManager		= rAManager;
@@ -183,7 +237,11 @@ public class OperationDialog extends JDialog {
 				panelMaterialButtons.add(comboBoxMaterial);
 			}
 			{
+<<<<<<< HEAD
 				ButtonAdd buttonMaterialAdd = new ButtonAdd (language);
+=======
+				ButtonNew buttonMaterialAdd = new ButtonNew (language);
+>>>>>>> V3.1-alertas
 				buttonMaterialAdd.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						addToUsedMaterials ((BMaterial)comboBoxMaterial.getSelectedItem ());
@@ -296,7 +354,11 @@ public class OperationDialog extends JDialog {
 				rAManager.save (operation);
 				dispose ();
 			} catch (bll.RAManagerException e) {
+<<<<<<< HEAD
 				ValueChecks.showExceptionMessage(this, e);
+=======
+				ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 			}
 		}
 	}
@@ -327,8 +389,19 @@ public class OperationDialog extends JDialog {
 					language.get ("deleteConfirm") + "\n" + tableUsedMaterials.getItemsText (selectedMaterials)) 
 					== JOptionPane.OK_OPTION)
 			{
+<<<<<<< HEAD
 				tableUsedMaterials.removeMaterials (selectedMaterials);
 				changes = true;
+=======
+				ArrayList <Integer> ids = tableUsedMaterials.getSelectedRegisterIds(selectedMaterials);
+				try {
+					rAManager.deleteUsedMaterialsByIds (ids);
+					tableUsedMaterials.removeMaterials (selectedMaterials);
+					changes = true;
+				} catch (RAManagerException e) {
+					ValueChecks.showExceptionMessage(this, language, e);
+				}
+>>>>>>> V3.1-alertas
 			}
 		} 
 	}
@@ -354,7 +427,11 @@ public class OperationDialog extends JDialog {
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			gui.ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 		
 		if (operation != null)

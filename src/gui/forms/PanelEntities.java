@@ -19,6 +19,10 @@ import gui.Language;
  * @author G1
  *
  */
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class PanelEntities extends JPanel 
 {
 	private Language language;

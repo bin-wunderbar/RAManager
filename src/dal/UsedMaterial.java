@@ -1,5 +1,11 @@
 package dal;
 
+<<<<<<< HEAD
+=======
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+>>>>>>> V3.1-alertas
 // ------------------------------------------------------------------------------------------------
 
 /***
@@ -10,20 +16,47 @@ package dal;
  */
 public class UsedMaterial extends DBEntity
 {
+<<<<<<< HEAD
+=======
+	public static final String SQL_TABLE_NAME		= "UsedMaterial";
+	
+	public static final String SQL_COLUMN_NAME_UNITS 			= "units";
+	public static final String SQL_COLUMN_NAME_ID_MATERIAL 		= "idMaterial";
+	public static final String SQL_COLUMN_NAME_ID_OPERATION 		= "idOperation";
+	public static final String SQL_COLUMN_NAME_UNIT_PRICE_APPLIED 	= "unitPriceApplied";
+	
+	public static final String[] SQL_COLUMN_NAMES 	= {
+			SQL_COLUMN_NAME_UNITS,
+			SQL_COLUMN_NAME_ID_MATERIAL,
+			SQL_COLUMN_NAME_ID_OPERATION,
+			SQL_COLUMN_NAME_UNIT_PRICE_APPLIED
+			}; 
+	
+>>>>>>> V3.1-alertas
 	private double units;
 	private int idMaterial;
 	private int idOperation;
 	private double unitPriceApplied;
 	
+<<<<<<< HEAD
 	private static int autoId = 1;
 	
 	public UsedMaterial ()
 	{
 		id = autoId++;
+=======
+	// -----------------------------------------------------------------------------------
+	/**
+	 * Inicializa un objeto de material utilizado por la operacion vacio
+	 */
+	public UsedMaterial ()
+	{
+>>>>>>> V3.1-alertas
 	}
 	
 	// ------------------------------------------------------------------------------------------------
 	/***
+<<<<<<< HEAD
 	 * Doy valor a todos los campos del material usado
 	 * @param id										- Identificación del histórico del material
 	 * @param units									- Unidades del material utilizado
@@ -35,11 +68,25 @@ public class UsedMaterial extends DBEntity
 	public UsedMaterial (int id, double units, int idMaterial, int idOperation, double unitPriceApplied)
 	{
 		this.id 				= id <= DBManager.ID_AUTO ? autoId++ : id;
+=======
+	 * Inicializa un objeto de material utilizado por la operacion por sus parametros
+	 * 
+	 * @param id					- Identifica el objeto de historico de material utilizado
+	 * @param units					- Unidades del material utilizado
+	 * @param idMaterial			- Identifica el material
+	 * @param idOperation			- Identifica la operación
+	 * @param unitPriceApplied		- Precio por unidad del material aplicado
+	 */
+	public UsedMaterial (int id, double units, int idMaterial, int idOperation, double unitPriceApplied)
+	{
+		this.id 				= id;
+>>>>>>> V3.1-alertas
 		this.units				= units;
 		this.idMaterial			= idMaterial;
 		this.idOperation		= idOperation;
 		this.unitPriceApplied	= unitPriceApplied;
 	}
+<<<<<<< HEAD
 	
 	// --------------------------------------------------------------------------------------------
 	@Override
@@ -65,6 +112,63 @@ public class UsedMaterial extends DBEntity
 	{
 		autoId = 1;
 	}
+=======
+
+	// --------------------------------------------------------------------------------------------
+	@Override
+	public void setResultSet (ResultSet resultSet) throws SQLException
+	{
+		id						= resultSet.getInt (SQL_COLUMN_NAME_ID);
+		units					= resultSet.getDouble (SQL_COLUMN_NAME_UNITS);
+		idMaterial				= resultSet.getInt (SQL_COLUMN_NAME_ID_MATERIAL);
+		idOperation				= resultSet.getInt (SQL_COLUMN_NAME_ID_OPERATION);
+		unitPriceApplied		= resultSet.getDouble (SQL_COLUMN_NAME_UNIT_PRICE_APPLIED);
+	}
+	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Devuelve una consulta con todos los datos de la tabla
+	 * 
+	 * @return Consulta con todos los datos de la tabla
+	 */
+	public static String getQuery ()
+	{
+		return "select " + SQL_COLUMN_NAME_ID + ", " + getSQLParseColumnNames(SQL_COLUMN_NAMES) + " from " + SQL_TABLE_NAME;
+	}
+	
+	// --------------------------------------------------------------------------------------------
+	@Override
+	public String getSQLTableName ()
+	{
+		return SQL_TABLE_NAME;
+	}
+
+	// --------------------------------------------------------------------------------------------
+	@Override
+	public String[] getSQLColumnNames ()
+	{
+		return SQL_COLUMN_NAMES;
+	}
+	
+	// --------------------------------------------------------------------------------------------
+	@Override
+	public Object[] getEntityValues ()
+	{
+		return new Object[] {units, idMaterial, idOperation, unitPriceApplied};
+	}
+
+	
+	// --------------------------------------------------------------------------------------------
+	@Override
+	public boolean containsFilter (String filter)
+	{
+		return true;
+	}
+
+	// ------------------------------------------------------------------------------------------------
+	// GETTERS & SETTERS
+	// ------------------------------------------------------------------------------------------------
+>>>>>>> V3.1-alertas
 	
 	/**
 	 * @return the id

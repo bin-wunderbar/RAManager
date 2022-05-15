@@ -35,6 +35,10 @@ import javax.swing.SwingConstants;
  * @author G1
  *
  */
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class PrintDialog extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
@@ -53,10 +57,22 @@ public class PrintDialog extends JDialog {
 	
 	// --------------------------------------------------------------------------------------------
 	/**
+<<<<<<< HEAD
 	 * Inicializa el diálogo de impresión
 	 * 
 	 * @param mainFrame	Formulario principal de la aplicación
 	 * @param order		Orden de trabajo a imprimir
+=======
+	 * Inicializa el dialogo de impresion
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param config		- Objeto de datos de configuracion
+	 * @param language		- Objeto de idioma
+	 * @param order			- Orden de trabajo a imprimir
+	 * @param entitiesText	- Datos de texto de la entidad emisora de la factura
+	 * @param orderText		- Datos de la orden en formato de texto
+>>>>>>> V3.1-alertas
 	 */
 	public PrintDialog (JFrame owner, RAManager rAManager, RAConfig config, Language language, BOrder order, String entitiesText, String orderText) 
 	{
@@ -66,6 +82,21 @@ public class PrintDialog extends JDialog {
 	}
 
 	// SOBRECARGA POR REQUISITO DE RÚBRICA, MODAL CONFIGURABLE
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el dialogo de impresion
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param config		- Objeto de datos de configuracion
+	 * @param language		- Objeto de idioma
+	 * @param order			- Orden de trabajo a imprimir
+	 * @param entitiesText	- Datos de texto de la entidad emisora de la factura
+	 * @param orderText		- Datos de la orden en formato de texto
+	 * @param modal			- Especifica si el dialogo es modal
+	 */
+>>>>>>> V3.1-alertas
 	public PrintDialog (JFrame owner, RAManager rAManager, RAConfig config, Language language, BOrder order, String entitiesText, String orderText, boolean modal) 
 	{
 		super (owner, modal);
@@ -74,6 +105,20 @@ public class PrintDialog extends JDialog {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el dialogo de impresion
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param config		- Objeto de datos de configuracion
+	 * @param language		- Objeto de idioma
+	 * @param order			- Orden de trabajo a imprimir
+	 * @param entitiesText	- Datos de texto de la entidad emisora de la factura
+	 * @param orderText		- Datos de la orden en formato de texto
+	 */
+>>>>>>> V3.1-alertas
 	private final void initDialog (JFrame owner, RAManager rAManager, RAConfig config, Language language, BOrder order, String entitiesText, String orderText)
 	{
 		this.rAManager		= rAManager;
@@ -164,6 +209,12 @@ public class PrintDialog extends JDialog {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Imprime directamente en pdf
+	 */
+>>>>>>> V3.1-alertas
 	public void printToPdf ()
 	{
 		JOptionPane.showMessageDialog (this, "Not implemented yet!");
@@ -182,7 +233,13 @@ public class PrintDialog extends JDialog {
 		rATableBill.updateOrder (rAManager, order);
 		double iva = config.getIva();
 		
+<<<<<<< HEAD
 		BigDecimal bigDecimalTotal 	= new BigDecimal (Util.getSum (Util.toDoubleArray(order.getTotalArray())));
+=======
+		double[] totalArray = Util.toDoubleArray(order.getTotalArray());
+		
+		BigDecimal bigDecimalTotal 	= totalArray == null ? new BigDecimal (0) : new BigDecimal (Util.getSum (totalArray));
+>>>>>>> V3.1-alertas
 		
 		BigDecimal bigDecimalTotalWithIva = new BigDecimal (bigDecimalTotal.toString());
 		bigDecimalTotalWithIva = bigDecimalTotalWithIva.add (bigDecimalTotal.multiply(new BigDecimal (iva)));
@@ -191,7 +248,11 @@ public class PrintDialog extends JDialog {
 		
 		textFieldTotal.setText(language.get ("totalText") + ":         " + String.format ("%.02f", bigDecimalTotal.doubleValue()) + config.getCurrency ());
 		textFieldTotalWidthIVA.setText(
+<<<<<<< HEAD
 			language.get ("totalText") + " + " + language.get ("ivaText") + " (" + Util.numberToString(iva * 100) + "%):         " +  
+=======
+			language.get ("totalText") + " + " + language.get ("ivaText") + " (" + Util.doubleToString(iva * 100) + "%):         " +  
+>>>>>>> V3.1-alertas
 			String.format ("%.02f", bigDecimalTotalWithIva.doubleValue()) + 
 			config.getCurrency ()
 			);
@@ -220,6 +281,14 @@ public class PrintDialog extends JDialog {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Devuelve el texto a imprimir
+	 * 
+	 * @return - Texto a imprimir
+	 */
+>>>>>>> V3.1-alertas
 	private String getPrintText ()
 	{
 		final int CONCEPT_WIDTH = 65;
@@ -234,12 +303,19 @@ public class PrintDialog extends JDialog {
 		tableText.setColumnCurrency(RATableBill.COLUMN_UNIT_PRICE, true);
 		tableText.setColumnCurrency(RATableBill.COLUMN_TOTAL, true);
 		
+<<<<<<< HEAD
 		
+=======
+>>>>>>> V3.1-alertas
 		return	entitiesText +
 				"\n\n" + 
 				orderText +
 				"\n\n" +
+<<<<<<< HEAD
 				tableText.getText() + 
+=======
+				tableText + 
+>>>>>>> V3.1-alertas
 				"\n\n" +
 				String.format ("%" + TOTALS_OFFSET + "s", textFieldTotal.getText ()) + "\n" +
 				String.format ("%" + TOTALS_OFFSET + "s", textFieldTotalWidthIVA.getText ())
@@ -248,7 +324,11 @@ public class PrintDialog extends JDialog {
 	
 	// --------------------------------------------------------------------------------------------
 	/**
+<<<<<<< HEAD
 	 *  Cierra el diálogo
+=======
+	 *  Cierra el dialogo
+>>>>>>> V3.1-alertas
 	 */
 	public void close ()
 	{

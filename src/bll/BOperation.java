@@ -56,8 +56,13 @@ public class BOperation extends Operation implements IRAObject
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	/***
 	 * Creo array
+=======
+	/**
+	 * Inicializacion comun de una operacion de la capa de negocio
+>>>>>>> V3.1-alertas
 	 */
 	private void initBOperation ()
 	{

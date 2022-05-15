@@ -6,6 +6,15 @@ import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
 // ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+/**
+ * Gestiona los eventos de la aplicacion y el registro de los mismos en el sistema de archivos
+ * 
+ * @author G4
+ *
+ */
+>>>>>>> V3.1-alertas
 public class RALogging 
 {
 	public static final int LEVEL_NOTSET	= 0;
@@ -18,6 +27,14 @@ public class RALogging
 	private String logFileName;
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el gestor de eventos
+	 * 
+	 * @param logFileName - Nombre del archivo de log
+	 */
+>>>>>>> V3.1-alertas
 	public RALogging (String logFileName)
 	{
 		this.logFileName = logFileName;
@@ -34,6 +51,15 @@ public class RALogging
 
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Imprime en el archivo de registro un evento
+	 * 
+	 * @param logLevel - Nivel del evento
+	 * @param message - Mensaje
+	 */
+>>>>>>> V3.1-alertas
 	public void println (int logLevel, String message)
 	{
 		String errorLevelText 		= "NOTSET";
@@ -51,7 +77,10 @@ public class RALogging
 		String messageLog = 
 				errorLevelText + ";" + Util.getIsoFormat(LocalDateTime.now()) + ";" + 
 				message + System.lineSeparator();
+<<<<<<< HEAD
 
+=======
+>>>>>>> V3.1-alertas
 		
 		try 
 		{

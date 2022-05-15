@@ -19,6 +19,10 @@ import bll.BUsedMaterial;
 import bll.RAManager;
 import bll.Util;
 import gui.Language;
+<<<<<<< HEAD
+=======
+import gui.ValueChecks;
+>>>>>>> V3.1-alertas
 
 // ------------------------------------------------------------------------------------------------
 /**
@@ -27,6 +31,10 @@ import gui.Language;
  * @author soporte
  *
  */
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class RATableBill extends JTable
 {
 	private Language language;
@@ -56,12 +64,30 @@ public class RATableBill extends JTable
 	}
 
 	// SOBRECARGA POR REQUISITO DE RÚBRICA
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa la tabla de factura
+	 * 
+	 * @param language			- Idioma para ajustar la vista
+	 * @param columnNames		- Nombres de columnas
+	 */
+>>>>>>> V3.1-alertas
 	public RATableBill (Language language, String[] columnNames)
 	{
 		initTable (language, columnNames);
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa la tabla de factura
+	 * 
+	 * @param language			- Idioma para ajustar la vista
+	 * @param columnNames 		- Nombres de columnas
+	 */
+>>>>>>> V3.1-alertas
 	private final void initTable (Language language, String[] columnNames)
 	{
 		this.language = language;
@@ -118,9 +144,12 @@ public class RATableBill extends JTable
 
 	// --------------------------------------------------------------------------------------------
 	@Override
+<<<<<<< HEAD
 	/***
 	 *  Configura la renderización de las celdas de la tabla
 	 */
+=======
+>>>>>>> V3.1-alertas
     public TableCellRenderer getCellRenderer (int row, int column) 
 	{
 		/*
@@ -180,9 +209,15 @@ public class RATableBill extends JTable
 			Object[] rowOperation = new Object[] {
 				PREFIX_OPERATION + operation.getId(),
 				service != null ? service.getDescription() : NO_ID,
+<<<<<<< HEAD
 				Util.numberToString (bigDecimalHourUnits.doubleValue()),
 				Util.numberToString (operation.getHourlyPriceApplied()),
 				Util.numberToString (operation.getTotal())
+=======
+				Util.doubleToString (bigDecimalHourUnits.doubleValue()),
+				Util.doubleToString (operation.getHourlyPriceApplied()),
+				Util.doubleToString (operation.getTotal())
+>>>>>>> V3.1-alertas
 				};
 			
 			tableModel.addRow(rowOperation);
@@ -196,9 +231,15 @@ public class RATableBill extends JTable
 				Object[] rowMaterial = new Object[] {
 					PREFIX_MATERIAL + usedMaterial.getIdMaterial(),
 					material != null ? material.getName() : NO_ID,
+<<<<<<< HEAD
 					Util.numberToString (usedMaterial.getUnits ()),
 					Util.numberToString (usedMaterial.getUnitPriceApplied()),
 					Util.numberToString (usedMaterial.getTotal())
+=======
+					Util.doubleToString (usedMaterial.getUnits ()),
+					Util.doubleToString (usedMaterial.getUnitPriceApplied()),
+					Util.doubleToString (usedMaterial.getTotal())
+>>>>>>> V3.1-alertas
 				};
 				
 				tableModel.addRow(rowMaterial);
@@ -207,7 +248,11 @@ public class RATableBill extends JTable
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage (null, language, e);
+>>>>>>> V3.1-alertas
 		}
 
 	}

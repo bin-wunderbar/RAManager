@@ -8,6 +8,10 @@ import bll.BOrder;
 import bll.BService;
 import bll.RAManager;
 import gui.Language;
+<<<<<<< HEAD
+=======
+import gui.ValueChecks;
+>>>>>>> V3.1-alertas
 
 // ------------------------------------------------------------------------------------------------
 /***
@@ -15,6 +19,10 @@ import gui.Language;
  * @author G1
  *
  */
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class RATableOperations extends JTable 
 {
 	private String[] columnNames;
@@ -109,11 +117,23 @@ public class RATableOperations extends JTable
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage (null, language, e);
+>>>>>>> V3.1-alertas
 		}
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Elimina las lineas especificadas
+	 * 
+	 * @param selectedRows - Matriz con las lineas a eliminar
+	 */
+>>>>>>> V3.1-alertas
 	public void removeRows(int[] selectedRows) 
 	{
 		for (int i = 0; i < selectedRows.length; i++)
@@ -132,7 +152,11 @@ public class RATableOperations extends JTable
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	// IDIOMAS
+=======
+	// IDIOMA
+>>>>>>> V3.1-alertas
 	// --------------------------------------------------------------------------------------------
 	
 	// ------------------------------------------------------------------------------------------------

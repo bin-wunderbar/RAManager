@@ -10,12 +10,31 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 // ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+/**
+ * Especializa un objeto JTextPane permitiendo indicar una imagen de fondo
+ * 
+ * @author G4
+ *
+ */
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class BackgroundTextPane extends JTextPane 
 {
 	private Color color;
 	private BufferedImage image;
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el objeto con la ruta de la imagen procedente de recursos internos y un color
+	 * 
+	 * @param imageInnerResourcePath - Imagen procedente de recursos internos
+	 * @param color - Color
+	 */
+>>>>>>> V3.1-alertas
 	public BackgroundTextPane (String imageInnerResourcePath, Color color)
 	{
 		this.color = color;

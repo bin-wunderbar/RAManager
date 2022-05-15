@@ -4,11 +4,19 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
+<<<<<<< HEAD
+=======
+import javax.swing.JComboBox;
+>>>>>>> V3.1-alertas
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+<<<<<<< HEAD
+=======
+import javax.swing.JPasswordField;
+>>>>>>> V3.1-alertas
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -40,8 +48,15 @@ import java.awt.event.WindowEvent;
  * @author G1
  *
  */
+<<<<<<< HEAD
 public class ConfigurationDialog extends JDialog {
 
+=======
+@SuppressWarnings("serial")
+public class ConfigurationDialog extends JDialog {
+
+
+>>>>>>> V3.1-alertas
 	private JTabbedPane tabbedPanel;
 	
 	private RAComboBox<String> rAComboBoxLanguage;
@@ -61,7 +76,11 @@ public class ConfigurationDialog extends JDialog {
 	private JTextField textFieldCompanyMail;
 	private JTextField textFieldCompanyPhone;
 	private JTextField textFieldCompanyNIF;
+<<<<<<< HEAD
 	private JTextField textFieldDatabaseConnection;
+=======
+	private JTextField textFieldSqlServer;
+>>>>>>> V3.1-alertas
 	private JTextField textFieldLoggingFileName;
 
 	private JPanel contentPanel;
@@ -70,6 +89,7 @@ public class ConfigurationDialog extends JDialog {
 
 	private JTextField[] textFields;
 	private boolean textFieldsChanged;
+<<<<<<< HEAD
 
 
 
@@ -80,6 +100,22 @@ public class ConfigurationDialog extends JDialog {
 	 * 
 	 * @param mainFrame		Formulario principal de la aplicación
 	 * @param language		Objeto con el lenguaje a aplicar
+=======
+	
+	private JComboBox <String> comboBoxDataBaseEngine;
+	private JTextField textFieldSqlUser;
+	private JPasswordField passwordFieldSqlPassword;
+
+
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Inicializa el dialogo de configuracion de opciones
+	 * 
+	 * @param owner 		- Ventana propietaria
+	 * @param rAManager		- Gestor de datos de la capa de negocio
+	 * @param config		- Objeto de datos de configuracion
+	 * @param language		- Objeto de idioma
+>>>>>>> V3.1-alertas
 	 */
 	public ConfigurationDialog (JFrame owner, RAManager rAManager, RAConfig config, Language language) 
 	{
@@ -88,6 +124,18 @@ public class ConfigurationDialog extends JDialog {
 	}
 
 	// SOBRECARGA POR REQUISITO DE RÚBRICA, CONFIGURACIÓN DEL ESTADO MODAL
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el dialogo de configuracion de opciones
+	 * 
+	 * @param owner 		- Ventana propietaria
+	 * @param rAManager		- Gestor de datos de la capa de negocio
+	 * @param config		- Objeto de datos de configuracion
+	 * @param language		- Objeto de idioma
+	 * @param modal			- Indica si el dialogo es modal o no
+	 */
+>>>>>>> V3.1-alertas
 	public ConfigurationDialog (JFrame owner, RAManager rAManager, RAConfig config, Language language, boolean modal) 
 	{
 		super (owner, modal);
@@ -95,6 +143,17 @@ public class ConfigurationDialog extends JDialog {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el dialogo de configuracion de opciones
+	 * 
+	 * @param owner 		- Ventana propietaria
+	 * @param rAManager		- Gestor de datos de la capa de negocio
+	 * @param config		- Objeto de datos de configuracion
+	 * @param language		- Objeto de idioma
+	 */
+>>>>>>> V3.1-alertas
 	private final void initDialog (JFrame owner, RAManager rAManager, RAConfig config, Language language)
 	{
 		this.language		= language;
@@ -177,6 +236,13 @@ public class ConfigurationDialog extends JDialog {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Verifica si se debe guardar al cerrar el dialogo
+	 * 
+	 */
+>>>>>>> V3.1-alertas
 	private void verifyWindowClosing ()
 	{
 		if (textFieldsChanged)
@@ -200,25 +266,45 @@ public class ConfigurationDialog extends JDialog {
 	
 	// --------------------------------------------------------------------------------------------
 	/***
+<<<<<<< HEAD
 	 * Inicializa los componentes del diálogo
+=======
+	 * Inicializa los componentes del dialogo
+>>>>>>> V3.1-alertas
 	 */
 	protected void initComponents ()
 	{
 		JPanel panelCompany 		= new JPanel ();
 		JPanel panelMiscellany		= new JPanel ();
+<<<<<<< HEAD
 		
 		panelCompany.setLayout (new GridLayout (0, 2));
 		panelMiscellany.setLayout (new GridLayout (0, 2));
 		
 		tabbedPanel.addTab (language.get ("miscellanyText"), panelMiscellany);
 		tabbedPanel.addTab (language.get ("companyLblTitle"), panelCompany);
+=======
+		JPanel panelConnection		= new JPanel ();
+		
+		panelCompany.setLayout (new GridLayout (0, 2));
+		panelMiscellany.setLayout (new GridLayout (0, 2));
+		panelConnection.setLayout (new GridLayout (0, 2));
+		
+		tabbedPanel.addTab (language.get ("connectionText"), panelConnection);
+		tabbedPanel.addTab (language.get ("companyLblTitle"), panelCompany);
+		tabbedPanel.addTab (language.get ("miscellanyText"), panelMiscellany);
+>>>>>>> V3.1-alertas
 		
 		rAComboBoxLanguage = new RAComboBox <> ();
 		
 		textFieldIva 				= new JTextField ();	textFieldIva.setHorizontalAlignment(JTextField.RIGHT);
 		textFieldCurrency			= new JTextField ();	textFieldCurrency.setHorizontalAlignment(JTextField.RIGHT);
 		textFieldPrintFontSize 		= new JTextField ();	textFieldPrintFontSize.setHorizontalAlignment(JTextField.RIGHT);
+<<<<<<< HEAD
 		textFieldDatabaseConnection = new JTextField ();
+=======
+
+>>>>>>> V3.1-alertas
 		textFieldLoggingFileName 	= new JTextField ();
 		textFieldCompanyName 		= new JTextField ();
 		textFieldCompanyDirection 	= new JTextField ();
@@ -227,11 +313,22 @@ public class ConfigurationDialog extends JDialog {
 		textFieldCompanyPhone 		= new JTextField ();
 		textFieldCompanyNIF 		= new JTextField ();
 
+<<<<<<< HEAD
+=======
+		textFieldSqlServer 			= new JTextField ();
+		textFieldSqlUser			= new JTextField ();
+		passwordFieldSqlPassword	= new JPasswordField ();
+		comboBoxDataBaseEngine 		= new JComboBox <> ();
+
+>>>>>>> V3.1-alertas
 		textFields = new JTextField[] {
 				textFieldIva, 
 				textFieldCurrency, 
 				textFieldPrintFontSize, 
+<<<<<<< HEAD
 				textFieldDatabaseConnection,
+=======
+>>>>>>> V3.1-alertas
 				textFieldLoggingFileName,
 				textFieldCompanyName,
 				textFieldCompanyDirection,
@@ -239,6 +336,11 @@ public class ConfigurationDialog extends JDialog {
 				textFieldCompanyMail,
 				textFieldCompanyPhone,
 				textFieldCompanyNIF,
+<<<<<<< HEAD
+=======
+				textFieldSqlServer,
+				textFieldSqlUser
+>>>>>>> V3.1-alertas
 		}; 
 		
 		panelMiscellany.add (new JLabel (language.get ("languageText")));
@@ -249,10 +351,16 @@ public class ConfigurationDialog extends JDialog {
 		panelMiscellany.add (textFieldCurrency);
 		panelMiscellany.add (new JLabel (language.get("printFontSize")));
 		panelMiscellany.add (textFieldPrintFontSize);
+<<<<<<< HEAD
 		panelMiscellany.add (new JLabel (language.get("databaseConnection")));
 		panelMiscellany.add (textFieldDatabaseConnection);
 		panelMiscellany.add (new JLabel (language.get("loggingFileName")));
 		panelMiscellany.add (textFieldLoggingFileName);
+=======
+		panelMiscellany.add (new JLabel (language.get("loggingFileName")));
+		panelMiscellany.add (textFieldLoggingFileName);
+		addPanelCleanRow (panelMiscellany);
+>>>>>>> V3.1-alertas
 		
 		panelCompany.add (new JLabel (language.get("companyLblName")));
 		panelCompany.add (textFieldCompanyName);
@@ -266,16 +374,49 @@ public class ConfigurationDialog extends JDialog {
 		panelCompany.add (textFieldCompanyPhone);
 		panelCompany.add (new JLabel (language.get("companyLblNIF")));
 		panelCompany.add (textFieldCompanyNIF);
+<<<<<<< HEAD
 
 		
+=======
+		addPanelCleanRow (panelCompany);
+
+		panelConnection.add (new JLabel (language.get ("preferredEngine")));
+		panelConnection.add (comboBoxDataBaseEngine);
+		panelConnection.add (new JLabel (language.get("sqlServer")));
+		panelConnection.add (textFieldSqlServer);
+		panelConnection.add (new JLabel (language.get("sqlUser")));
+		panelConnection.add (textFieldSqlUser);
+		panelConnection.add (new JLabel (language.get("sqlPassword")));
+		panelConnection.add (passwordFieldSqlPassword);
+		addPanelCleanRow (panelConnection);
+		addPanelCleanRow (panelConnection);
+
+>>>>>>> V3.1-alertas
 		for (JTextField textField : textFields)
 		{
 			textField.getDocument().addDocumentListener (new TextFieldChanged ());
 		}
 		
+<<<<<<< HEAD
 	}
 	
 	// --------------------------------------------------------------------------------------------
+=======
+		passwordFieldSqlPassword.getDocument().addDocumentListener(new TextFieldChanged ());
+		
+		
+	}
+	
+	// --------------------------------------------------------------------------------------------
+	private void addPanelCleanRow (JPanel panel)
+	{
+		panel.add (new JLabel ()); panel.add (new JLabel ());
+	}
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Ajusta los permisos segun el rol
+	 */
+>>>>>>> V3.1-alertas
 	private void setPermissionsByRole ()
 	{
 		int idLogin = rAManager.getActiveLogin().getRole().getId(); 
@@ -316,16 +457,33 @@ public class ConfigurationDialog extends JDialog {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Carga los datos del dialogo
+	 * 
+	 */
+>>>>>>> V3.1-alertas
 	private void load ()
 	{
 		rAComboBoxLanguage.loadItems (new ArrayList <String> (Arrays.asList (language.getDomainNames())));
 		rAComboBoxLanguage.selectBy (config.getLanguageName());
 		rAComboBoxLanguage.setEditable(false);
+<<<<<<< HEAD
+=======
+
+		textFieldSqlServer.setText(config.getSqlServer());
+		textFieldSqlUser.setText (config.getSqlUser());
+		passwordFieldSqlPassword.setText(config.getSqlPassword());
+>>>>>>> V3.1-alertas
 		
 		textFieldIva.setText("" + config.getIva());
 		textFieldCurrency.setText(config.getCurrency());
 		textFieldPrintFontSize.setText ("" + config.getPrintFontSize());
+<<<<<<< HEAD
 		textFieldDatabaseConnection.setText(config.getDatabaseConnection());
+=======
+>>>>>>> V3.1-alertas
 		textFieldLoggingFileName.setText(config.getLoggingFileName());
 		
 		textFieldCompanyName.setText(config.getCompanyName());
@@ -334,9 +492,67 @@ public class ConfigurationDialog extends JDialog {
 		textFieldCompanyMail.setText(config.getCompanyMail ());
 		textFieldCompanyPhone.setText(config.getCompanyPhone());
 		textFieldCompanyNIF.setText(config.getCompanyNIF());
+<<<<<<< HEAD
 	}
 
 	// --------------------------------------------------------------------------------------------
+=======
+		
+		comboBoxDataBaseEngine.addItem(RAConfig.ENGINE_MARIADB_STRING);
+		comboBoxDataBaseEngine.addItem(RAConfig.ENGINE_DERBY_STRING);
+		
+
+		comboBoxDataBaseEngineSelectedItem(config.getDataBaseEngine());
+		comboBoxDataBaseEngine.addActionListener(new ActionListener () {
+			public void actionPerformed (ActionEvent actionEvent)
+			{
+				setDataBaseEngineDefaultValues ();
+			}
+		});
+	}
+	
+	
+	
+	// --------------------------------------------------------------------------------------------
+	protected void setDataBaseEngineDefaultValues() 
+	{
+		switch ((String)comboBoxDataBaseEngine.getSelectedItem())
+		{
+			default:
+			case RAConfig.ENGINE_MARIADB_STRING:
+				textFieldSqlServer.setText (config.getServerAsDefaultHost ());
+				break;
+			case RAConfig.ENGINE_DERBY_STRING:
+				textFieldSqlServer.setText (config.getServerAsDefaultDirectory ());
+				break;
+		}
+		
+		
+	}
+
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Selecciona un elemento del combobox segun el identificador del motor de base de datos
+	 * @param dataBaseEngine		- Identificador del motor de base de datos
+	 */
+	private void comboBoxDataBaseEngineSelectedItem (String dataBaseEngine)
+	{
+		for (int i = 0, count =  comboBoxDataBaseEngine.getItemCount(); i < count; i++)
+		{
+			if (((String)comboBoxDataBaseEngine.getItemAt(i)).equalsIgnoreCase(dataBaseEngine))
+			{
+				comboBoxDataBaseEngine.setSelectedIndex(i);
+				return;
+			}
+		}
+	}
+	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Guarda los datos del dialogo
+	 * 
+	 */
+>>>>>>> V3.1-alertas
 	private void saveDataConfig ()
 	{
 		if (verifyFields ())
@@ -344,12 +560,22 @@ public class ConfigurationDialog extends JDialog {
 			String selectedLanguage = (String)rAComboBoxLanguage.getSelectedItem(); 
 			language.loadTranslation (selectedLanguage);
 
+<<<<<<< HEAD
 
+=======
+			config.setDataBaseEngine((String)comboBoxDataBaseEngine.getSelectedItem());
+			config.setSqlServer (textFieldSqlServer.getText());
+			config.setSqlUser (textFieldSqlUser.getText());
+			config.setSqlPassword (new String (passwordFieldSqlPassword.getPassword()));
+>>>>>>> V3.1-alertas
 			config.setLanguageName (selectedLanguage);
 			config.setIva(Double.parseDouble(textFieldIva.getText()));
 			config.setCurrency(textFieldCurrency.getText());
 			config.setPrintFontSize (Integer.parseInt (textFieldPrintFontSize.getText()));
+<<<<<<< HEAD
 			config.setDatabaseConnection(textFieldDatabaseConnection.getText());
+=======
+>>>>>>> V3.1-alertas
 			config.setLoggingFileName(textFieldLoggingFileName.getText());
 			
 			config.setCompanyName(textFieldCompanyName.getText ());
@@ -366,7 +592,11 @@ public class ConfigurationDialog extends JDialog {
 			catch (IOException e) 
 			{
 				JOptionPane.showMessageDialog (this, language.get("saveDataError"), language.get("errorText"), JOptionPane.ERROR_MESSAGE);
+<<<<<<< HEAD
 				rAManager.logPrintln (RALogging.LEVEL_ERROR, "ConfigurationDialog::saveDataConfig () - Save data config error [" + RAConfig.configFile + "]");
+=======
+				rAManager.logPrintln (RALogging.LEVEL_ERROR, "ConfigurationDialog::saveDataConfig () - Save data config error [" + RAConfig.CONFIG_FILE + "]");
+>>>>>>> V3.1-alertas
 				e.printStackTrace();
 			}
 
@@ -375,10 +605,23 @@ public class ConfigurationDialog extends JDialog {
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	private boolean verifyFields ()
 	{
 		JTextField[] normalTextFields = new JTextField[] {
 				textFieldDatabaseConnection,
+=======
+	/**
+	 * Verifica que los campos contengan datos correctos
+	 * 
+	 * @return Cierto si todas las comprobaciones son correctas 
+	 */
+	private boolean verifyFields ()
+	{
+		JTextField[] normalTextFields = new JTextField[] {
+				textFieldSqlServer,
+				textFieldSqlUser,
+>>>>>>> V3.1-alertas
 				textFieldLoggingFileName,
 				textFieldCompanyName,
 				textFieldCompanyDirection,
@@ -387,16 +630,42 @@ public class ConfigurationDialog extends JDialog {
 				textFieldCompanyPhone,
 				textFieldCompanyNIF
 			};
+<<<<<<< HEAD
 		if (valueChecks.isValidIVA (textFieldIva))
 		{
 			if (valueChecks.isCharacterValue(textFieldCurrency))
+=======
+		
+		String[] normalLabels = new String[] {
+				language.get("sqlServer"),
+				language.get("sqlUser"),
+				language.get("loggingFileName"),
+				language.get("companyLblName"),
+				language.get("columnDirection"),
+				language.get("companyLblProvince"),
+				language.get("companyLblMail"),
+				language.get("companyLblPhone"),
+				language.get("companyLblNIF")
+		}; 
+		
+		if (valueChecks.isValidIVA (textFieldIva, language.get("ivaText")))
+		{
+			if (valueChecks.isCharacterValue(textFieldCurrency, language.get("currencyText")))
+>>>>>>> V3.1-alertas
 			{
 				if (valueChecks.rangeOfPrintFontSize (textFieldPrintFontSize))
 				{
 					boolean normalTextFieldsOk = true;
+<<<<<<< HEAD
 					for (JTextField normalTextField : normalTextFields)
 					{
 						if (!valueChecks.isValidTextField(normalTextField))
+=======
+					
+					for (int i = 0; i < normalTextFields.length; i++)
+					{
+						if (!valueChecks.isValidTextField(normalTextFields[i], normalLabels[i]))
+>>>>>>> V3.1-alertas
 						{
 							normalTextFieldsOk = false;
 							break;
@@ -405,7 +674,14 @@ public class ConfigurationDialog extends JDialog {
 					
 					if (normalTextFieldsOk)
 					{
+<<<<<<< HEAD
 						return true;
+=======
+						if (valueChecks.isValidPassword(passwordFieldSqlPassword, language.get("sqlPassword")))
+						{
+							return true;
+						}
+>>>>>>> V3.1-alertas
 					}
 				}
 			}
@@ -415,6 +691,13 @@ public class ConfigurationDialog extends JDialog {
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Restablece los datos mostrados por el dialogo segun los parametros de fabrica
+	 * 
+	 */
+>>>>>>> V3.1-alertas
 	private void restoreDefaults ()
 	{
 		if (JOptionPane.showConfirmDialog(this, language.get("loadDefaultsConfirm"), language.get("load"), JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)

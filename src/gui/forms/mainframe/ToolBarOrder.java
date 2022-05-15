@@ -21,6 +21,10 @@ import gui.Language;
  * @author G1
  *
  */
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class ToolBarOrder extends JToolBar
 {
 	private Language language;

@@ -32,10 +32,16 @@ public class BUsedMaterial extends UsedMaterial
 	// --------------------------------------------------------------------------------------------
 	/***
 	 * Traspasar datos del material usado
+<<<<<<< HEAD
 	 * @param usedMaterial			- Material usado en la reparación
 	 * @param bMaterial					- Material en la capa de negocio
 	 */
 	
+=======
+	 * @param usedMaterial	- Material usado en la reparacion
+	 * @param bMaterial	- Material en la capa de negocio
+	 */
+>>>>>>> V3.1-alertas
 	public BUsedMaterial(UsedMaterial usedMaterial, BMaterial bMaterial) 
 	{
 		super (

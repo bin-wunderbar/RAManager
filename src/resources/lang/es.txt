@@ -1,9 +1,17 @@
 appTitle=Rekord Autoak S.L.
+<<<<<<< HEAD
+=======
+login=Inicio de sesión
+>>>>>>> V3.1-alertas
 passwordLabelOld=Contraseña antigua
 passwordLabelNew=Contraseña nueva
 passwordLabelConfirm=Confirmar contraseña
 badOldPassword=Contraseña anterior incorrecta
 badPasswordEquals=Las contraseñas no coinciden
+<<<<<<< HEAD
+=======
+passwordChangeOk=Contraseña cambiada correctamente
+>>>>>>> V3.1-alertas
 configurationText=Configuración
 languageText=Idioma
 miscellanyText=Miscelanea
@@ -121,6 +129,10 @@ statusDialogTitle=Estado
 permissionDenied=¡Permiso denegado!
 selectButton=Seleccionar
 vehicleDialogTitle=Vehículos
+<<<<<<< HEAD
+=======
+clientMustExists="Guarde primero el cliente para acceder a sus vehículos."
+>>>>>>> V3.1-alertas
 employeeDialog=Empleados
 deleteConfirm=¿Eliminar los elementos seleccionados?
 clientMustBeSelected=Selecciona un cliente para acceder a sus órdenes de trabajo.
@@ -158,6 +170,10 @@ orderStatusDontChanged=El estado de la orden no permite modificarla
 loginCannotRemoved=El usuario que inica sesión no puede eliminarse a sí mismo
 filter=Filtro
 minimalValueInit=Inicio nuevo con valores mínimos
+<<<<<<< HEAD
+=======
+derbyDataDemo=Utilizar una base de datos local Derby
+>>>>>>> V3.1-alertas
 saveDataDemo=Crear y guardar datos de demostración
 loadErrorText=Error de carga de datos
 overwrite=Sobrescribir
@@ -165,4 +181,38 @@ warningDeleteDataBase=Advertencia. ¡Se eliminarán todos los datos de la base d
 errorClientNIFUNIQUE=¡No se puede guardar! Ya existe un cliente con el NIF especificado
 errorEmployeeNIFUNIQUE=¡No se puede guardar! Ya existe un empleado con el NIF especificado
 errorRegistrationNumberUNIQUE=¡No se puede guardar! Ya existe un vehículo con la matrícula especificada
+<<<<<<< HEAD
 about=Rekord Autoak Manager 2021\n\nG4: Cipri, Clara, Dani, Endika, Miriam\n Java SE Eclipse\n\nVersión 1.9.6
+=======
+serviceNotAvailable=El servidor de base de datos no se encuentra disponible
+lockedRoot=La cuenta del usuario root se encuentra bloqueada por el servicio
+sqlBadLogin=El usuario o la contraseña de acceso a la base de datos no es correcto
+databaseDontExists=La base de datos no se encuentra en el servidor
+connectionText=Conexión
+sqlServer=Servidor de base de datos
+credentials=Credenciales
+inputDBCredentials=Introduzca las credenciales de acceso a la base de datos
+sqlUser=Usuario de acceso a la base de datos
+sqlPassword=Contraseña de acceso a la base de datos
+errorOcurred=Se ha producido un error
+messageText=Mensaje
+stackTrace=Traza
+errorCode_-1=El servicio de base de datos no responde
+errorCode_1045=Inicio de sesión incorrecto
+errorCode_1062=Ya existe una entrada que utiliza ese valor único (Consulte la traza para más detalles)
+errorCode_1698=Inicio de sesión incorrecto
+errorCode_1049=La base de datos no existe
+assumeIdentity=Asumir identidad
+errorLoadMariaDB="No se puede cargar la base de datos"
+preferredEngine=Motor de base de datos
+newConfiguration=Se ha detectado una nueva configuración, seleccione el motor de base de datos preferido
+emptySelectedField=Debe seleccionar un elemento en el diálogo correspondiente
+userAlerts=Alertas de usuario
+columnEventTime=Fecha del evento
+columnNote=Nota
+columnDone=Hecho
+warningText=Aviso
+expiredAlerts=Hay alertas vencidas ¿Desea verlas?
+loadErrorMariaDB=Selecciona la forma de comenzar en el motor de MariaDB
+about=Rekord Autoak Manager 2022\n\nG3: Cipri, Dani Cano, Dani Díez, Youssef\n Java SE Eclipse\n\nVersión 3.1.6
+>>>>>>> V3.1-alertas

@@ -21,6 +21,10 @@ import gui.forms.mainframe.MainFrame;
  * @author G1
  */
 
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class CanvasLogo extends Canvas 
 {
 	private Image image;
@@ -29,22 +33,47 @@ public class CanvasLogo extends Canvas
 	
 	// --------------------------------------------------------------------------------------------
 	/***
+<<<<<<< HEAD
 	 * Idioma en canvas 
 	 * @param language - Idioma
 	 */
 
+=======
+	 * Inicializa el objeto de dibujo
+	 * 
+	 * @param language - Idioma
+	 */
+>>>>>>> V3.1-alertas
 	public CanvasLogo (Language language)
 	{
 		initCanvasLogo (language, "/resources/rekord_autoak_logo.png");
 	}
 
 	// SOBRECARGA POR REQUISITO DE RÚBRICA
+<<<<<<< HEAD
+=======
+	/***
+	 * Inicializa el objeto de dibujo
+	 * 
+	 * @param language 		- Idioma
+	 * @param logoFileName 	- Nombre de archivo con la imagen del logo 
+	 */
+>>>>>>> V3.1-alertas
 	public CanvasLogo (Language language, String logoFileName)
 	{
 		initCanvasLogo (language, logoFileName);
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/***
+	 * Inicializa el objeto de dibujo
+	 * 
+	 * @param language 		- Idioma
+	 * @param logoFileName 	- Nombre de archivo con la imagen del logo 
+	 */
+>>>>>>> V3.1-alertas
 	private final void initCanvasLogo (Language language, String logoFileName)
 	{
 		this.language = language;
@@ -60,15 +89,30 @@ public class CanvasLogo extends Canvas
 	
 	// --------------------------------------------------------------------------------------------
 	/***
+<<<<<<< HEAD
 	 * Configuración de canvas
 	 */
 	
+=======
+	 * Evento de redibujado del componente
+	 */
+>>>>>>> V3.1-alertas
 	public void paint (Graphics g)
 	{
 		g.drawImage (getHeader (getWidth (), getHeight ()), 0, 0, this);
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Devuelve una imagen con la cabecera segun el ancho y alto especificados
+	 * 
+	 * @param width		- Ancho de la cabecera
+	 * @param height	- Alto de la cabecera
+	 * @return La imagen que representa a la cabecera
+	 */
+>>>>>>> V3.1-alertas
 	public BufferedImage getHeader (int width, int height)
 	{
 

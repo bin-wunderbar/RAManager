@@ -58,7 +58,11 @@ public class PageText
     /**
      * Devuelve la página correspondiente al índice de página indicado
      * 
+<<<<<<< HEAD
      * @param pageIndex	Índice de página
+=======
+     * @param pageIndex	Indice de página
+>>>>>>> V3.1-alertas
      * @return Líneas de la página indicada <strong>null</strong> en caso que la página no exista
      */
     public String[] getPage (int pageIndex)
@@ -97,6 +101,15 @@ public class PageText
     }
 
     // --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+    /**
+     * Devuelve un numero de lineas vacias para desplazar la pagina
+     * 
+     * @param newLines - Numero de lineas a desplazar
+     * @return Cadena de texto con las lineas vacias
+     */
+>>>>>>> V3.1-alertas
     private String getNewLines (int newLines)
     {
     	String lines = "";
@@ -110,12 +123,28 @@ public class PageText
     }
     
     // --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+    /**
+     * Devuelve el total de paginas disponibles
+     * 
+     * @return numero total de paginas disponibles
+     */
+>>>>>>> V3.1-alertas
 	public int getTotalPages() 
 	{
 		return textLines.length / linesPerPage () + 1;
 	}
 
     // --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Devuelve el numero de lineas por pagina
+	 * 
+	 * @return Numero de lineas por pagina
+	 */
+>>>>>>> V3.1-alertas
 	private int linesPerPage ()
 	{
 		return pageHeight / textSize;

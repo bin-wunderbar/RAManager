@@ -9,7 +9,11 @@ import gui.Language;
 
 // ------------------------------------------------------------------------------------------------
 /***
+<<<<<<< HEAD
  * 	Clase de utilidades para la aplicación
+=======
+ * 	Clase de utilidades para la aplicacion
+>>>>>>> V3.1-alertas
  *  
  * @author G1
  *
@@ -20,6 +24,7 @@ public abstract class Util
 	
 	// ------------------------------------------------------------------------------------------------
 	/***
+<<<<<<< HEAD
 	 *  Convierte un número real en cadena.
 	 *  Si el número no requiere decimales se eliminan de la conversión (ejemplo: 52.0 => "52")
 	 * @param value		- Valor a convertir a texto
@@ -28,6 +33,15 @@ public abstract class Util
 	public static String numberToString (double value)
 	{
 		return value > (int)value ? "" + value : "" + (int)value;
+=======
+	 *  Convierte un número real en cadena con 2 decimales
+	 * @param value - Valor a convertir a texto
+	 * @return Valor convertido a texto
+	 */
+	public static String doubleToString (double value)
+	{
+		return String.format ("%.2f", value);
+>>>>>>> V3.1-alertas
 	}
 	
 	// ------------------------------------------------------------------------------------------------
@@ -51,22 +65,50 @@ public abstract class Util
 	}
 	
     // --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
     public static String[] splitForSize (String text, int size)
     {
         String[] lines = new String [text.length() / size + 1];
+=======
+	/**
+	 * Divide una cadena en subcadenas segun el ancho de columna y evitar sobresalir de la misma
+	 * 
+	 * @param text - Texto a dividir
+	 * @param columnWidth - Ancho de columna
+	 * @return Matriz de cadenas cortadas
+	 */
+    public static String[] splitForSize (String text, int columnWidth)
+    {
+        String[] lines = new String [text.length() / columnWidth + 1];
+>>>>>>> V3.1-alertas
 
         int i;
         for (i = 0; i < lines.length - 1; i++)
         {
+<<<<<<< HEAD
             lines[i] = text.substring (i * size, i * size + size);
         }
 
         lines[i] = text.substring (i* size);
+=======
+            lines[i] = text.substring (i * columnWidth, i * columnWidth + columnWidth);
+        }
+
+        lines[i] = text.substring (i* columnWidth);
+>>>>>>> V3.1-alertas
 
         return lines;
     }
 
     // --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+    /**
+     * Devuelve la rempresentacion de fecha y hora segun el formato iso 8601
+     * @param localDateTime - Objeto de fecha y hora
+     * @return Cadena de texto con la representacion en formato iso
+     */
+>>>>>>> V3.1-alertas
     public static String getIsoFormat (LocalDateTime localDateTime)
     {
     	return String.format("%04d-%02d-%02d %02d:%02d:%02d", 
@@ -76,6 +118,22 @@ public abstract class Util
     }
     
     // --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+    /**
+     * Devuelve datos de entidad segun su etiqueta y valor en formato de 4 columnas y ancho de columna
+     * 
+     * @param labelA - Etiqueta del primer valor
+     * @param labelASize - Ancho de la etiqueta
+     * @param textA - Texto del primer valor
+     * @param textASize - Ancho del primer valor
+     * @param labelB - Etiqueta del segundo valor
+     * @param labelBSize - Ancho de la etiqueta
+     * @param textB - Texto del segundo valor
+     * @param textBSize - Ancho del segundo valor
+     * @return Cadena de texto con los datos formateados
+     */
+>>>>>>> V3.1-alertas
     public static String getFormatedData (
         String labelA,  int labelASize,
         String textA,   int textASize,
@@ -123,11 +181,21 @@ public abstract class Util
     }
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	/**
 	 * Devuelve los datos de la orden de trabajo en formato de texto
 	 * 
 	 * @return Texto con los datos de la orden
 	 */
+=======
+    /**
+     * Devuelve los datos de la orden de trabajo en formato de texto
+     * 
+     * @param language - Objeto de idioma
+     * @param order - Objeto de orden de trabajo
+     * @return Texto con los datos de la orden
+     */
+>>>>>>> V3.1-alertas
 	public static String getOrderText (Language language, BOrder order) 
 	{
 

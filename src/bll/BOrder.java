@@ -32,7 +32,11 @@ public class BOrder extends Order implements IRAObject
 	
 	// --------------------------------------------------------------------------------------------
 	/***
+<<<<<<< HEAD
 	 * Iniciallizacion de la  orden de trabajo
+=======
+	 * Inicializacion de la  orden de trabajo
+>>>>>>> V3.1-alertas
 	 */
 	public BOrder ()
 	{
@@ -41,11 +45,18 @@ public class BOrder extends Order implements IRAObject
 	
 	// --------------------------------------------------------------------------------------------
 	/***
+<<<<<<< HEAD
 	 * Inicialización de la orden de trabajo
 	 * @param order										- Orden de trabajo de la reparación
 	 * @param bEmployeeEvaluator			- Empleado que evalua la orden de  trabajo
 	 */
 	
+=======
+	 * Inicializacion de la orden de trabajo
+	 * @param order	- Orden de trabajo de la reparación
+	 * @param bEmployeeEvaluator - Empleado que evalua la orden de  trabajo
+	 */
+>>>>>>> V3.1-alertas
 	public BOrder(Order order, BEmployee bEmployeeEvaluator) 
 	{
 		super (
@@ -68,7 +79,10 @@ public class BOrder extends Order implements IRAObject
 	/***
 	 * Inicializa la orden
 	 */
+<<<<<<< HEAD
 	
+=======
+>>>>>>> V3.1-alertas
 	private void initBOrder ()
 	{
 		bOperations = new ArrayList <BOperation> ();
@@ -76,7 +90,11 @@ public class BOrder extends Order implements IRAObject
 	
 	// --------------------------------------------------------------------------------------------
 	/***
+<<<<<<< HEAD
 	 * Añado la operacion
+=======
+	 * Agrega la operacion
+>>>>>>> V3.1-alertas
 	 * @param operation 		- Operación de la reparación
 	 */
 	public void addOperation(BOperation operation) 
@@ -90,9 +108,12 @@ public class BOrder extends Order implements IRAObject
 
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	/***
 	 * Sobrescribe el método toString para devolver la descripción de la orden
 	 */
+=======
+>>>>>>> V3.1-alertas
 	@Override
 	public String toString ()
 	{
@@ -100,6 +121,13 @@ public class BOrder extends Order implements IRAObject
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Devuelve la lista con los costes totales de cada concepto de la orden
+	 * @return Lista con los totales de los conceptos
+	 */
+>>>>>>> V3.1-alertas
 	public ArrayList <Double> getTotalArray ()
 	{
 		ArrayList <Double> doubleArrayList = new ArrayList <> ();
@@ -185,7 +213,11 @@ public class BOrder extends Order implements IRAObject
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @param bEEvaluator the bEvaluator to set
+=======
+	 * @param bEvaluator the bEvaluator to set
+>>>>>>> V3.1-alertas
 	 */
 	public void setBEvaluator(BEmployee bEvaluator) {
 		this.bEvaluator = bEvaluator;

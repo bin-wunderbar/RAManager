@@ -9,6 +9,15 @@ import java.awt.print.PrinterException;
 import java.awt.image.BufferedImage;
 
 // ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+/**
+ * Gestiona la impresion de la factura
+ * 
+ * @author G4
+ *
+ */
+>>>>>>> V3.1-alertas
 public class PrintDataBill 
 {
 	private int fontSize;
@@ -18,9 +27,21 @@ public class PrintDataBill
 	private BufferedImage imageHeader;
 	private static final int MARGIN_LINES = 2;
 	
+<<<<<<< HEAD
 	private static final int HORIZONATAL_MARGIN = 72;
 	
 	// --------------------------------------------------------------------------------------------
+=======
+	private static final int HORIZONTAL_MARGIN = 72;
+	private static final int VERTICAL_MARGIN = 72;
+	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Inicializa la impresion con un tamanno de fuente
+	 * 
+	 * @param fontSize - Tamanno de fuente
+	 */
+>>>>>>> V3.1-alertas
 	PrintDataBill (int fontSize)
 	{
 		printerJob 		= PrinterJob.getPrinterJob();
@@ -29,6 +50,12 @@ public class PrintDataBill
 	}
 
 	// SOBRECARGA POR REQUISITO DE RÚBRICA
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa la impresion 
+	 */
+>>>>>>> V3.1-alertas
 	PrintDataBill ()
 	{
 		printerJob 		= PrinterJob.getPrinterJob();
@@ -38,6 +65,15 @@ public class PrintDataBill
 
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Devuelve cierto si se puede lanzar el dialogo de seleccion de impresion del sistema
+	 * 
+	 * @return Cierto si se puede lanzar el dialog de seleccion de impresion del sistema
+	 * @throws PrinterException
+	 */
+>>>>>>> V3.1-alertas
 	public boolean printDialog () throws PrinterException
 	{
 		
@@ -52,21 +88,44 @@ public class PrintDataBill
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Ajusta el texto a imprimir
+	 * 
+	 * @param text - Texto a imprimir
+	 */
+>>>>>>> V3.1-alertas
 	public void setText (String text)
 	{
 		this.text = text;
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Devuelve un objeto imprimible para controlador de impresion
+	 * 
+	 * @return Objeto imprimible
+	 */
+>>>>>>> V3.1-alertas
 	private Printable getPrintable ()
 	{
 		return new Printable () {
 			@Override
 			public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
 
+<<<<<<< HEAD
 				//int imageableX =  (int)pageFormat.getImageableX ();
 				int imageableX =  HORIZONATAL_MARGIN;
 				int imageableY =  (int)pageFormat.getImageableY ();
+=======
+				// int imageableX =  (int)pageFormat.getImageableX ();
+				// int imageableY =  (int)pageFormat.getImageableY ();
+				int imageableX =  HORIZONTAL_MARGIN;
+				int imageableY =  VERTICAL_MARGIN;
+>>>>>>> V3.1-alertas
 				int pageHeight =  (int)pageFormat.getImageableHeight ();
 				int pageWidth  =  (int)pageFormat.getImageableWidth () - 2;
 				
@@ -75,7 +134,11 @@ public class PrintDataBill
 				if (imageHeader != null)
 				{
 
+<<<<<<< HEAD
 					int imageWidth = pageWidth;
+=======
+					int imageWidth = (int)(pageFormat.getWidth () - HORIZONTAL_MARGIN * 2);
+>>>>>>> V3.1-alertas
 					double widthRatio = (double)pageWidth / imageHeader.getWidth ();
 					int imageHeight = (int)(imageHeader.getHeight () * widthRatio);
 

@@ -1,6 +1,15 @@
 package dal;
 
 // --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+/**
+ * Excepciones de la clase DBManager
+ * @author soporte
+ *
+ */
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class DBManagerException extends Exception
 {
 	public static final int GENERIC_EXCEPTION		= 0;
@@ -8,6 +17,14 @@ public class DBManagerException extends Exception
 	private int errorCode;
 	
 	// ----------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa una excepcion con un mensaje
+	 * 
+	 * @param message - Mensaje
+	 */
+>>>>>>> V3.1-alertas
 	DBManagerException (String message)
 	{
 		super (message);
@@ -15,6 +32,15 @@ public class DBManagerException extends Exception
 	}
 
 	// ----------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa una excepcion por codigo de error y mensaje
+	 * 
+	 * @param errorCode - Codigo de error
+	 * @param message - Mensaje
+	 */
+>>>>>>> V3.1-alertas
 	DBManagerException (int errorCode, String message)
 	{
 		super (message);

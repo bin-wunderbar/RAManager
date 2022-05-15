@@ -1,6 +1,7 @@
 package bll;
 
 // ------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 public class RAManagerException extends Exception 
 {
 	public static final int GENERIC_EXCEPTION		= 0;
@@ -8,12 +9,49 @@ public class RAManagerException extends Exception
 	private int errorCode;
 	
 	// --------------------------------------------------------------------------------------------
+=======
+/**
+ * Excepciones de RAManager
+ * 
+ * @author G4
+ *
+ */
+@SuppressWarnings("serial")
+public class RAManagerException extends Exception 
+{
+	private int errorCode;
+
+	public static final int NO_ERROR									= 0;
+	public static final int UNKNOW_ERROR								= -9999; 
+	
+	public static final int MYSQL_ERROR_CODE_SERVICE_NOT_AVAILABLE		= -1;
+	public static final int MYSQL_ERROR_CODE_BAD_LOGIN					= 1045;
+	public static final int MYSQL_ERROR_CODE_DATABASE_DONT_EXISTS		= 1049;
+	public static final int MYSQL_ERROR_CODE_LOCKED_ROOT				= 1698;
+	
+	
+	// --------------------------------------------------------------------------------------------
+	/**
+	 * Inicializa una excepcion
+	 * 
+	 * @param message - Mensaje
+	 */
+>>>>>>> V3.1-alertas
 	public RAManagerException (String message)
 	{
 		super (message);
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa una excepcion y registra el mensaje como evento de aplicacion
+	 * 
+	 * @param rALogging - Gestor de logging
+	 * @param message - Mensaje
+	 */
+>>>>>>> V3.1-alertas
 	public RAManagerException (RALogging rALogging, String message)
 	{
 		super (message);
@@ -21,6 +59,16 @@ public class RAManagerException extends Exception
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa una excepcion y registra el mensaje como evento de aplicacion
+	 * 
+	 * @param rALogging - Gestor de logging
+	 * @param errorCode - Codigo de error
+	 * @param message - Mensaje
+	 */
+>>>>>>> V3.1-alertas
 	public RAManagerException (RALogging rALogging, int errorCode, String message)
 	{
 		super (message);

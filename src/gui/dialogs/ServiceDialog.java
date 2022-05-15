@@ -18,17 +18,31 @@ import gui.ValueChecks;
  * @author G1
  *
  */
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class ServiceDialog extends GenericEntityDialog <BService>
 {
 	private ValueChecks valueChecks;
 		
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	/***
 	 * Inicializa el diálogo
 	 * 
 	 * @param mainFrame		Formulario principal de la aplicacíon
 	 * @param list			Lista de servicios
 	 * @throws RAManagerException 
+=======
+	/**
+	 * Inicializa el dialog de servicios
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @throws RAManagerException
+>>>>>>> V3.1-alertas
 	 */
 	public ServiceDialog (java.awt.Window owner, RAManager rAManager, Language language) throws RAManagerException
 	{
@@ -37,6 +51,18 @@ public class ServiceDialog extends GenericEntityDialog <BService>
 	}
 	
 	// SOBRECAGA POR REQUISITO DE RÚBRICA
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el dialog de servicios
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @param services		- Lista de servicios
+	 * @throws RAManagerException
+	 */
+>>>>>>> V3.1-alertas
 	public ServiceDialog (java.awt.Window owner, RAManager rAManager, Language language, ArrayList <BService> services) throws RAManagerException
 	{
 		super (owner, rAManager, language, language.getServiceColumnNames(), services, language.get ("serviceTitle"));
@@ -68,7 +94,11 @@ public class ServiceDialog extends GenericEntityDialog <BService>
 		try {
 			rAManager.deleteServicesByIds (ids);
 		} catch (bll.RAManagerException e) {
+<<<<<<< HEAD
 			ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 	}
 
@@ -95,7 +125,11 @@ public class ServiceDialog extends GenericEntityDialog <BService>
 			service.setId(selectedObjectId);
 		}
 		
+<<<<<<< HEAD
 		if (valueChecks.isValidTextField(textFieldDescription))
+=======
+		if (valueChecks.isValidTextField(textFieldDescription, columnNames[BService.COLUMN_DESCRIPTION]))
+>>>>>>> V3.1-alertas
 		{
 			service.setDescription (textFieldDescription.getText());
 
@@ -127,7 +161,11 @@ public class ServiceDialog extends GenericEntityDialog <BService>
 				refreshTable ();
 				setChanged (false);
 			} catch (bll.RAManagerException e) {
+<<<<<<< HEAD
 				ValueChecks.showExceptionMessage(this, e);
+=======
+				ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 			}
 		}
 	}
@@ -172,7 +210,11 @@ public class ServiceDialog extends GenericEntityDialog <BService>
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 	}
 

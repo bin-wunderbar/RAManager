@@ -25,6 +25,10 @@ import gui.controls.RAComboBox;
  * @author G1
  *
  */
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 {
 	private ValueChecks valueChecks;
@@ -32,6 +36,7 @@ public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 	private RAComboBox <BRole> rAComboBoxRole;
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	/***
 	 * Inicializa el diálogo
 	 * 
@@ -39,6 +44,15 @@ public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 	 * @param list			Lista de empleados
 	 * @param windowBounds	Rectángulo con la posición del formulario invocador
 	 * @throws RAManagerException 
+=======
+	/**
+	 * Inicializa el dialogo de empleado
+	 *  
+	 * @param owner					- Ventana propietaria
+	 * @param rAManager				- Gestor de datos
+	 * @param language				- Objeto de idioma
+	 * @throws RAManagerException
+>>>>>>> V3.1-alertas
 	 */
 	public EmployeeDialog(java.awt.Window owner, RAManager rAManager, Language language) throws RAManagerException 
 	{
@@ -48,6 +62,18 @@ public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 	}
 
 	// SOBRECARGA POR REQUISITO DE RÚBRICA
+<<<<<<< HEAD
+=======
+	/**
+	 * Inicializa el dialogo de empleado
+	 *  
+	 * @param owner					- Ventana propietaria
+	 * @param rAManager				- Gestor de datos
+	 * @param language				- Objeto de idioma
+	 * @param employees				- Lista de empleados
+	 * @throws RAManagerException
+	 */
+>>>>>>> V3.1-alertas
 	public EmployeeDialog(java.awt.Window owner, RAManager rAManager, Language language, ArrayList <BEmployee> employees) throws RAManagerException 
 	{
 		super (owner, rAManager, language, language.getEmployeeColumnNames(), employees, language.get ("employeeDialog"));
@@ -56,15 +82,22 @@ public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	/***
 	 * Inicializa el diálogo de tabla
 	 */
+=======
+>>>>>>> V3.1-alertas
 	@Override
 	protected void initTableDialog() 
 	{
 		Rectangle bounds = getBounds ();
 		
+<<<<<<< HEAD
 		bounds.height += 125;
+=======
+		bounds.height += 150;
+>>>>>>> V3.1-alertas
 		
 		valueChecks = new ValueChecks (this, language);
 		panelFieldsRebuild ();
@@ -73,6 +106,12 @@ public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Reconstruye el panel de campos de texto
+	 */
+>>>>>>> V3.1-alertas
 	private void panelFieldsRebuild ()
 	{
 		passwordField 	= new JPasswordField ();
@@ -85,7 +124,11 @@ public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 
 		
@@ -116,20 +159,37 @@ public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 	}
 	
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	/***
 	 * Elimina los empleados seleccionados
 	 */
+=======
+>>>>>>> V3.1-alertas
 	@Override
 	protected void deleteEvent (ArrayList <Integer> ids) 
 	{
 		try {
 			rAManager.deleteEmployeesByIds (ids);
 		} catch (bll.RAManagerException e) {
+<<<<<<< HEAD
 			ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 	}
 
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+	/**
+	 * Devuelve cierto si el empleado que ha inciado sesion no se encuentra en la lista
+	 *  
+	 * @param login 	- Empleado que ha iniciado sesion
+	 * @param ids 		- Lista de ids 
+	 * @return Cierto si el empleado no esta en la lista
+	 */
+>>>>>>> V3.1-alertas
 	public boolean employeesIsntLogin (BEmployee login, ArrayList <Integer> ids)
 	{
 		for (int employeeId : ids)
@@ -197,6 +257,7 @@ public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 			employee.setId(selectedObjectId);
 		}
 		
+<<<<<<< HEAD
 		if (valueChecks.isValidNIF(textFieldDNI))
 		{
 			employee.setNiF(textFieldDNI.getText());
@@ -210,10 +271,26 @@ public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 					employee.setSurnames(textFieldSurnames.getText());
 					
 					if (valueChecks.isValidTextField(textFieldProvince))
+=======
+		if (valueChecks.isValidNIF(textFieldDNI, columnNames[BEmployee.COLUMN_NIF]))
+		{
+			employee.setNiF(textFieldDNI.getText());
+			
+			if (valueChecks.isValidTextField (textFieldName, columnNames[BEmployee.COLUMN_NAME]))
+			{
+				employee.setName(textFieldName.getText ());
+			
+				if (valueChecks.isValidTextField(textFieldSurnames, columnNames[BEmployee.COLUMN_SURNAMES]))
+				{
+					employee.setSurnames(textFieldSurnames.getText());
+					
+					if (valueChecks.isValidTextField(textFieldProvince, columnNames[BEmployee.COLUMN_PROVINCE]))
+>>>>>>> V3.1-alertas
 					{
 						employee.setProvince(textFieldProvince.getText ());
 						
 						
+<<<<<<< HEAD
 						if (valueChecks.isValidTextField(textFieldDirection))
 						{
 							employee.setDirection(textFieldDirection.getText());
@@ -227,11 +304,30 @@ public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 									employee.setPhone(textFieldPhone.getText ());
 									
 									if (valueChecks.isValidPassword (passwordField))
+=======
+						if (valueChecks.isValidTextField(textFieldDirection, columnNames[BEmployee.COLUMN_DIRECTION]))
+						{
+							employee.setDirection(textFieldDirection.getText());
+							
+							if (valueChecks.isValidEmail (textFieldEmail, columnNames[BEmployee.COLUMN_EMAIL]))
+							{
+								employee.setEmail(textFieldEmail.getText ());
+								
+								if (valueChecks.isValidPhone (textFieldPhone, columnNames[BEmployee.COLUMN_PHONE]))
+								{
+									employee.setPhone(textFieldPhone.getText ());
+									
+									if (valueChecks.isValidPassword (passwordField, columnNames[BEmployee.COLUMN_PASSWORD]))
+>>>>>>> V3.1-alertas
 									{
 										employee.setPassword(new String (passwordField.getPassword()));
 										BRole role = (BRole)rAComboBoxRole.getSelectedItem();
 										employee.setRole(role);
+<<<<<<< HEAD
 										employee.setIdRol(role.getId());
+=======
+										employee.setIdRole(role.getId());
+>>>>>>> V3.1-alertas
 
 										selectedObjectId = employee.getId();
 										returnEmployee = employee;
@@ -264,6 +360,7 @@ public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 				refreshTable ();
 				setChanged (false);
 			} catch (bll.RAManagerException exception) {
+<<<<<<< HEAD
 				
 				if (exception.getErrorCode() == bll.RAManagerException.ERROR_UNIQUE)
 				{
@@ -273,6 +370,9 @@ public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 				{
 					ValueChecks.showExceptionMessage(this, exception);
 				}
+=======
+				ValueChecks.showExceptionMessage(this, language, exception);
+>>>>>>> V3.1-alertas
 			}
 		}
 	}
@@ -321,7 +421,11 @@ public class EmployeeDialog extends GenericEntityDialog <BEmployee>
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 
 	}

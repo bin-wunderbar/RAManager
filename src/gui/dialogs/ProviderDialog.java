@@ -13,22 +13,40 @@ import gui.ValueChecks;
 
 // ------------------------------------------------------------------------------------------------
 /***
+<<<<<<< HEAD
  * Diálogo de gestión de clientes
+=======
+ * Dialogo de gestion de proveedores
+>>>>>>> V3.1-alertas
  * 
  * @author G1
  *
  */
+<<<<<<< HEAD
+=======
+@SuppressWarnings("serial")
+>>>>>>> V3.1-alertas
 public class ProviderDialog extends GenericEntityDialog <BProvider>
 {
 	private ValueChecks valueChecks;
 		
 	// --------------------------------------------------------------------------------------------
+<<<<<<< HEAD
 	/***
 	 * Inicializa el diálogo
 	 * 
 	 * @param mainFrame		Formulario principal de la aplicacíon
 	 * @param list			Lista de clientes
 	 * @throws RAManagerException 
+=======
+	/**
+	 * Inicializa el dialogo
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @throws RAManagerException
+>>>>>>> V3.1-alertas
 	 */
 	public ProviderDialog (java.awt.Window owner, RAManager rAManager, Language language) throws RAManagerException
 	{
@@ -37,7 +55,19 @@ public class ProviderDialog extends GenericEntityDialog <BProvider>
 	}
 
 	// SOBRECARGA POR REQUISITO DE RÚBRICA
+<<<<<<< HEAD
 	public ProviderDialog (java.awt.Window owner, RAManager rAManager, Language language, ArrayList <BProvider> providers) throws RAManagerException
+=======
+	/**
+	 * Inicializa el dialogo
+	 * 
+	 * @param owner			- Ventana propietaria
+	 * @param rAManager		- Gestor de datos
+	 * @param language		- Objeto de idioma
+	 * @param providers		- Lista de proveedores
+	 * @throws RAManagerException
+	 */	public ProviderDialog (java.awt.Window owner, RAManager rAManager, Language language, ArrayList <BProvider> providers) throws RAManagerException
+>>>>>>> V3.1-alertas
 	{
 		super (owner, rAManager, language, language.getProviderColumnNames(), providers, language.get ("providerTitle"));
 		setVisible (true);
@@ -70,7 +100,11 @@ public class ProviderDialog extends GenericEntityDialog <BProvider>
 		try {
 			rAManager.deleteProvidersByIds (ids);
 		} catch (bll.RAManagerException e) {
+<<<<<<< HEAD
 			ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 	}
 
@@ -99,6 +133,7 @@ public class ProviderDialog extends GenericEntityDialog <BProvider>
 			provider.setId(selectedObjectId);
 		}
 		
+<<<<<<< HEAD
 		if (valueChecks.isValidTextField(textFieldName))
 		{
 			provider.setName(textFieldName.getText());
@@ -112,6 +147,21 @@ public class ProviderDialog extends GenericEntityDialog <BProvider>
 					provider.setEmail(textFieldEmail.getText());
 					
 					if (valueChecks.isValidPhone(textFieldPhone))
+=======
+		if (valueChecks.isValidTextField(textFieldName, columnNames[BProvider.COLUMN_NAME]))
+		{
+			provider.setName(textFieldName.getText());
+
+			if (valueChecks.isValidTextField(textFieldDirection, columnNames[BProvider.COLUMN_DIRECTION]))
+			{
+				provider.setDirection(textFieldDirection.getText());
+				
+				if (valueChecks.isValidEmail(textFieldEmail, columnNames[BProvider.COLUMN_EMAIL]))
+				{
+					provider.setEmail(textFieldEmail.getText());
+					
+					if (valueChecks.isValidPhone(textFieldPhone, columnNames[BProvider.COLUMN_PHONE]))
+>>>>>>> V3.1-alertas
 					{
 						provider.setPhone(textFieldPhone.getText());
 						
@@ -142,7 +192,11 @@ public class ProviderDialog extends GenericEntityDialog <BProvider>
 				refreshTable ();
 				setChanged (false);
 			} catch (bll.RAManagerException e) {
+<<<<<<< HEAD
 				ValueChecks.showExceptionMessage(this, e);
+=======
+				ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 			}
 		}
 	}
@@ -179,7 +233,11 @@ public class ProviderDialog extends GenericEntityDialog <BProvider>
 		catch (bll.RAManagerException e) 
 		{
 			rAManager.getRALogging ().println(bll.RALogging.LEVEL_ERROR, e.getMessage());
+<<<<<<< HEAD
 			gui.ValueChecks.showExceptionMessage(this, e);
+=======
+			ValueChecks.showExceptionMessage(this, language, e);
+>>>>>>> V3.1-alertas
 		}
 
 	}
